@@ -1,6 +1,11 @@
 const Header = () => {
+    const onHeaderClick = (e) => {
+        e.preventDefault();
+    }
+    
     return (
-        <header className="header">
+        <header onClick={onHeaderClick}
+        className="header">
             <div className="container">
                 <div className="row">
                     <div className="col">
