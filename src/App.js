@@ -1,10 +1,11 @@
-import HomePage from "./components/Home/HomePage";
+import HomePage from './components/Home/HomePage';
+import BlogPage from './components/Blog/BlogPage';
 
 function App() {
   return (
     <div>
-      <HomePage/>
-
+      <HomePage />
+      <BlogPage />
       <script src="js/jquery-3.2.1.min.js"></script>
       <script src="styles/bootstrap-4.1.2/popper.js"></script>
       <script src="styles/bootstrap-4.1.2/bootstrap.min.js"></script>
