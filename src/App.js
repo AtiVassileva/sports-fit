@@ -1,29 +1,9 @@
-import Header from './components/Header'
-import HamburgerBar from './components/HamburgerBar';
-import Menu from './components/Menu';
-import Home from './components/Home';
-import Boxes from './components/Boxes';
-import About from './components/About';
-import Testimonials from './components/Testimonials';
-import Gallery from './components/Gallery';
-import Services from './components/Services';
-import Blog from './components/Blog';
-import Footer from './components/Footer';
+import HomePage from "./components/Home/HomePage";
 
 function App() {
   return (
     <div>
-      <Header />
-      <HamburgerBar />
-      <Menu />
-      <Home />
-      <Boxes/>
-      <About />
-      <Testimonials/>
-      <Gallery/>
-      <Services/>
-      <Blog/>
-      <Footer/>
+      <HomePage/>
 
       <script src="js/jquery-3.2.1.min.js"></script>
       <script src="styles/bootstrap-4.1.2/popper.js"></script>
