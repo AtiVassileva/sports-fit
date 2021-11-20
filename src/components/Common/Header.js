@@ -19,7 +19,7 @@ const Header = () => {
                                     <li className="active"><a href="index.html">Home</a></li>
                                     <li><a href="about.html">About us</a></li>
                                     <li><a href="services.html">Classes & Services</a></li>
-                                    <li><a href="blog.html">Blog</a></li>
+                                    <li><a href="/blog">Blog</a></li>
                                     <li><a href="contact.html">Contact</a></li>
                                 </ul>
                             </nav>

@@ -1,6 +1,10 @@
+import Header from '../Common/Header';
+import Footer from '../Common/Footer';
+
 const CreateArticle = () => {
     return (
         <div>
+            <Header/>
             <div className="home">
                 <div className="background_image" style={{ backgroundImage: "url(images/contact.jpg)"}}></div>
                 <div className="overlay"></div>
@@ -50,6 +54,7 @@ const CreateArticle = () => {
                     </div>
                 </div>
             </div>
+            <Footer/>
         </div>
     );
 }
