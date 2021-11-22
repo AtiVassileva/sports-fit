@@ -1,21 +1,21 @@
 const Title = () => {
     return (
-        <div className="home">
-            <div className="background_image" style={{ backgroundImage: "url(images/blog_page.jpg)" }}></div>
-            <div className="overlay"></div>
-            <div className="home_container">
-                <div className="container">
-                    <div className="row">
-                        <div className="col">
-                            <div className="home_content">
-                                <div className="home_title">Blog</div>
-                                <div className="home_subtitle">Pilates, Yoga, Fitness, Spinning & many more</div>
+        <section class="breadcrumb-section set-bg" style={{ backgroundImage: "url('img/breadcrumb-bg.jpg')"}}>
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12 text-center">
+                        <div class="breadcrumb-text">
+                            <h2>Our Blog</h2>
+                            <div class="bt-option">
+                                <a href="/">Home</a>
+                                <a href="/">Pages</a>
+                                <span>Blog</span>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
+        </section>
     );
 }
 

@@ -1,5 +1,5 @@
-import HomePage from './components/Home/HomePage';
-import BlogPage from './components/Blog/BlogPage';
+import Home from './components/Home/Home';
+import Blog from './components/Blog/Blog';
 import CreateArticle from './components/Forms/CreateArticle'
 import { Route, Switch } from 'react-router-dom';
 
@@ -7,8 +7,8 @@ function App() {
   return (
     <div>
       <Switch>
-        <Route path="/" exact component={HomePage} />
-        <Route path="/blog" component={BlogPage} />
+        <Route path="/" exact component={Home} />
+        <Route path="/blog" component={Blog} />
         <Route path="/create-article" component={CreateArticle} />
       </Switch>
     </div>

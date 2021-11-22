@@ -1,35 +1,60 @@
-import Post from './Post';
+import Post from "./Post";
+import Pagination from "./Pagination";
+import Categories from "./Categories";
 
 const Main = () => {
     return (
-        <div className="blog">
-            <div className="container">
-                <div className="row">
-                    <div className="col">
-                        <div className="section_title_container">
-                            <div className="section_subtitle">welcome to sportfit</div>
-                            <div className="section_title">Blog</div>
-                        </div>
+        <section class="blog-section spad">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 p-0">
+                        <Post
+                            imageUrl="img/blog/blog-1.jpg"
+                            title="Vegan White Peach Mug Cobbler With Cardam Vegan White Peach Mug Cobbler..."
+                            author="By Admin"
+                            date="Aug,15, 2019"
+                            content="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed eiusmod tempor incididunt ut
+                            labore et dolore magna aliqua accumsan lacus facilisis."
+                        />
+                        <Post
+                            imageUrl="img/blog/blog-2.jpg"
+                            title="Vegan White Peach Mug Cobbler With Cardam Vegan White Peach Mug Cobbler..."
+                            author="By Admin"
+                            date="Aug,15, 2019"
+                            content="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed eiusmod tempor incididunt ut
+                            labore et dolore magna aliqua accumsan lacus facilisis."
+                        />
+                        <Post
+                            imageUrl="img/blog/blog-3.jpg"
+                            title="Vegan White Peach Mug Cobbler With Cardam Vegan White Peach Mug Cobbler..."
+                            author="By Admin"
+                            date="Aug,15, 2019"
+                            content="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed eiusmod tempor incididunt ut
+                            labore et dolore magna aliqua accumsan lacus facilisis."
+                        />
+                        <Post
+                            imageUrl="img/blog/blog-4.jpg"
+                            title="Vegan White Peach Mug Cobbler With Cardam Vegan White Peach Mug Cobbler..."
+                            author="By Admin"
+                            date="Aug,15, 2019"
+                            content="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed eiusmod tempor incididunt ut
+                            labore et dolore magna aliqua accumsan lacus facilisis."
+                        />
+                        <Post
+                            imageUrl="img/blog/blog-5.jpg"
+                            title="Vegan White Peach Mug Cobbler With Cardam Vegan White Peach Mug Cobbler..."
+                            author="By Admin"
+                            date="Aug,15, 2019"
+                            content="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed eiusmod tempor incididunt ut
+                            labore et dolore magna aliqua accumsan lacus facilisis."
+                        />
+                        
+                        <Pagination/>
                     </div>
-                </div>
-                <div className="row blog_row">
-                    <Post />
-                    <Post />
-                    <Post />
-                    <Post />
-                    <Post />
-                    <Post />
-                    <Post />
-                    <Post />
-                    <Post />
-                </div>
-                <div className="row">
-                    <div className="col">
-                        <div className="button blog_button ml-auto mr-auto"><a href="#">Load More</a></div>
-                    </div>
+                    <Categories/>
                 </div>
             </div>
-        </div>
+        </section>
     );
 }
 
