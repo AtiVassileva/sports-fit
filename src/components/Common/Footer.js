@@ -25,7 +25,7 @@ const Footer = () => {
                       <ul>
                           <li><a href="#">About</a></li>
                           <li><a href="#">Blog</a></li>
-                          <li><a href="#">classNamees</a></li>
+                          <li><a href="#">Classes</a></li>
                           <li><a href="#">Contact</a></li>
                       </ul>
                   </div>
@@ -39,25 +39,6 @@ const Footer = () => {
                           <li><a href="#">Subscribe</a></li>
                           <li><a href="#">Contact</a></li>
                       </ul>
-                  </div>
-              </div>
-              <div className="col-lg-4 col-md-6">
-                  <div className="fs-widget">
-                      <h4>Tips & Guides</h4>
-                      <div className="fw-recent">
-                          <h6><a href="#">Physical fitness may help prevent depression, anxiety</a></h6>
-                          <ul>
-                              <li>3 min read</li>
-                              <li>20 Comment</li>
-                          </ul>
-                      </div>
-                      <div className="fw-recent">
-                          <h6><a href="#">Fitness: The best exercise to lose belly fat and tone up...</a></h6>
-                          <ul>
-                              <li>3 min read</li>
-                              <li>20 Comment</li>
-                          </ul>
-                      </div>
                   </div>
               </div>
           </div>

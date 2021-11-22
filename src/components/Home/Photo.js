@@ -1,18 +1,11 @@
 const Photo = ({
-    isWide, 
+    isWide,
     imageUrl
 }) => {
-    const getClassesNames = () => {
-        let wideClass = isWide ? 'grid-wide' : '';
-        return `gs-item ${wideClass} set-bg`;
-    }
-
-    const getImageUrl = () => `url(${imageUrl})`;
-
     return (
-        <div className={getClassesNames}
-            style={{ backgroundImage: { getImageUrl } }}>
-            <a href={getImageUrl} className="thumb-icon image-popup">
+        <div className={`gs-item ${isWide ? 'grid-wide' : ''} set-bg`}
+            style={{ backgroundImage: `url(${imageUrl})` }}>
+            <a href={`${imageUrl}`} className="thumb-icon image-popup">
                 <i className="fa fa-picture-o"></i>
             </a>
         </div>
