@@ -6,32 +6,43 @@ const Header = () => {
     
     return (
         <header onClick={onHeaderClick}
-        className="header">
-            <div className="container">
-                <div className="row">
-                    <div className="col">
-                        <div className="header_content d-flex flex-row align-items-center justify-content-start trans_400">
-                            <a>
-                                <div className="logo d-flex flex-row align-items-center justify-content-start"><img src="images/dot.png" alt="" /><div>Sport<span>fit</span></div></div>
-                            </a>
-                            <nav className="main_nav">
-                                <ul className="d-flex flex-row align-items-center justify-content-start">
-                                    <li className="active"><a href="index.html">Home</a></li>
-                                    <li><a href="about.html">About us</a></li>
-                                    <li><a href="services.html">Classes & Services</a></li>
-                                    <li><a href="/blog">Blog</a></li>
-                                    <li><a href="contact.html">Contact</a></li>
+        className="header-section">
+                <div className="container-fluid">
+                    <div className="row">
+                        <div className="col-lg-3">
+                            <div className="logo">
+                                <a href="./index.html">
+                                    <img src="/img/logo.png" alt="" />
+                                </a>
+                            </div>
+                        </div>
+                        <div className="col-lg-6">
+                            <nav className="nav-menu">
+                                <ul>
+                                    <li className="active"><a href="/">Home</a></li>
+                                    <li><a href="/about">About Us</a></li>
+                                    <li><a href="/classes">Classes</a></li>
+                                    <li><a href="/Services">Services</a></li>
+                                    <li><a href="/contact">Contact</a></li>
                                 </ul>
                             </nav>
-                            <div className="phone d-flex flex-row align-items-center justify-content-start ml-auto">
-                                <i className="fa fa-phone" aria-hidden="true"></i>
-                                <div>652-345 3222 11</div>
+                        </div>
+                        <div className="col-lg-3">
+                            <div className="top-option">
+                                <div className="to-social">
+                                    <a href="#"><i className="fa fa-facebook"></i></a>
+                                    <a href="#"><i className="fa fa-twitter"></i></a>
+                                    <a href="#"><i className="fa fa-youtube-play"></i></a>
+                                    <a href="#"><i className="fa fa-instagram"></i></a>
+                                </div>
                             </div>
                         </div>
                     </div>
+                    <div className="canvas-open">
+                        <i className="fa fa-bars"></i>
+                    </div>
                 </div>
-            </div>
-        </header>
+            </header>
     );
 }
 
