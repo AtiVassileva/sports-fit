@@ -1,5 +1,6 @@
 import Header from './components/Common/Header';
 import Footer from './components/Common/Footer';
+import Preloader from './components/Common/Preloader';
 import MenuOverlay from './components/Common/MenuOverlay';
 import MenuWrapper from './components/Common/MenuWrapper';
 import Home from './components/Home/Home';
@@ -12,6 +13,7 @@ import Login from './components/Forms/Authentication/Login/Login';
 function App() {
   return (
     <div>
+      <Preloader/>
       <MenuOverlay />
       <MenuWrapper />
       <Header />
