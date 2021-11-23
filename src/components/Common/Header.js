@@ -37,6 +37,10 @@ const Header = () => {
                     <div className="col-lg-3">
                         <div className="top-option">
                             <div className="to-social">
+                                <NavLink to="/login">Login
+                                </NavLink>
+                                <NavLink to="/register">Register
+                                </NavLink>
                                 <NavLink to="#">
                                     <i className="fa fa-facebook"></i>
                                 </NavLink>

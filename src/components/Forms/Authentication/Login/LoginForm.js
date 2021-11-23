@@ -1,4 +1,4 @@
-const RegisterForm = () => {
+const LoginForm = () => {
     return (
         <section class="contact-section spad">
         <div class="container">
@@ -9,16 +9,10 @@ const RegisterForm = () => {
                             <fieldset class="username">
                                 <input type="text" placeholder="Username" />
                             </fieldset>
-                            <fieldset class="email">
-                                <input type="email" placeholder="Email" />
-                            </fieldset>
                             <fieldset class="password">
                                 <input type="password" placeholder="Password" />
                             </fieldset>
-                            <fieldset class="confirmPassword">
-                                <input type="confirmPassword" placeholder="Confirm Password" />
-                            </fieldset>
-                            <button type="submit" class="btn">sign up</button>
+                            <button type="submit" class="btn">sign in</button>
                         </form>
                     </div>
                 </div>
@@ -28,4 +22,4 @@ const RegisterForm = () => {
     );
 }
 
-export default RegisterForm;
+export default LoginForm;

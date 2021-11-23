@@ -7,6 +7,7 @@ import Blog from './components/Blog/Blog';
 import CreateArticle from './components/Forms/Create/CreateArticle'
 import { Route, Switch } from 'react-router-dom';
 import Register from './components/Forms/Authentication/Register/Register';
+import Login from './components/Forms/Authentication/Login/Login';
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
         <Route path="/blog" component={Blog} />
         <Route path="/create-article" component={CreateArticle} />
         <Route path="/register" component={Register} />
+        <Route path="/login" component={Login} />
       </Switch>
       <Footer />
     </div>
