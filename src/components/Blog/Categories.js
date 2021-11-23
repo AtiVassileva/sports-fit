@@ -1,4 +1,5 @@
 import Tags from "./Tags";
+import { Link } from 'react-router-dom';
 
 const Categories = () => {
     return(
@@ -7,12 +8,12 @@ const Categories = () => {
                             <div class="so-categories">
                                 <h5 class="title">Categories</h5>
                                 <ul>
-                                    <li><a href="#">Yoga <span>12</span></a></li>
-                                    <li><a href="#">Runing <span>32</span></a></li>
-                                    <li><a href="#">Weightloss <span>86</span></a></li>
-                                    <li><a href="#">Cario <span>25</span></a></li>
-                                    <li><a href="#">Body buiding <span>36</span></a></li>
-                                    <li><a href="#">Nutrition <span>15</span></a></li>
+                                    <li><Link to="#">Yoga <span>12</span></Link></li>
+                                    <li><Link to="#">Runing <span>32</span></Link></li>
+                                    <li><Link to="#">Weightloss <span>86</span></Link></li>
+                                    <li><Link to="#">Cario <span>25</span></Link></li>
+                                    <li><Link to="#">Body buiding <span>36</span></Link></li>
+                                    <li><Link to="#">Nutrition <span>15</span></Link></li>
                                 </ul>
                             </div>
 

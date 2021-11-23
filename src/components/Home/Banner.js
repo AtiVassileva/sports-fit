@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom';
+
 const Banner = () => {
     return (
         <section className="banner-section set-bg" style={{ backgroundImage: "url('img/banner-bg.jpg')" }}>
@@ -7,7 +9,7 @@ const Banner = () => {
                         <div className="bs-text">
                             <h2>register now to get more deals</h2>
                             <div className="bt-tips">Where health, beauty and fitness meet.</div>
-                            <a href="/register" className="primary-btn  btn-normal">Appointment</a>
+                            <Link to="/register" className="primary-btn  btn-normal">Appointment</Link>
                         </div>
                     </div>
                 </div>

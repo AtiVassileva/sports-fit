@@ -1,15 +1,17 @@
+import { Link } from 'react-router-dom';
+
 const Tags = () => {
     return (
         <div class="so-tags">
             <h5 class="title">Popular tags</h5>
-            <a href="#">Gyming</a>
-            <a href="#">Body buidling</a>
-            <a href="#">Yoga</a>
-            <a href="#">Weightloss</a>
-            <a href="#">Proffeponal</a>
-            <a href="#">Streching</a>
-            <a href="#">Cardio</a>
-            <a href="#">Karate</a>
+            <Link to="#">Gyming</Link>
+            <Link to="#">Body buidling</Link>
+            <Link to="#">Yoga</Link>
+            <Link to="#">Weightloss</Link>
+            <Link to="#">Proffeponal</Link>
+            <Link to="#">Streching</Link>
+            <Link to="#">Cardio</Link>
+            <Link to="#">Karate</Link>
         </div>
     );
 }

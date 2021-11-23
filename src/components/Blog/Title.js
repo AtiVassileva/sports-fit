@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom';
+
 const Title = () => {
     return (
         <section class="breadcrumb-section set-bg" style={{ backgroundImage: "url('img/breadcrumb-bg.jpg')"}}>
@@ -7,8 +9,7 @@ const Title = () => {
                         <div class="breadcrumb-text">
                             <h2>Our Blog</h2>
                             <div class="bt-option">
-                                <a href="/">Home</a>
-                                <a href="/">Pages</a>
+                                <Link to="/">Home</Link>
                                 <span>Blog</span>
                             </div>
                         </div>

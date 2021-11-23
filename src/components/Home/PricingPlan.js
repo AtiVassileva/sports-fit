@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom';
+
 const PricingPlan = () => {
     return (
         <div className="col-lg-4 col-md-8">
@@ -15,8 +17,8 @@ const PricingPlan = () => {
                     <li>Month to mouth</li>
                     <li>No time restriction</li>
                 </ul>
-                <a href="#" className="primary-btn pricing-btn">Enroll now</a>
-                <a href="#" className="thumb-icon"><i className="fa fa-picture-o"></i></a>
+                <Link to="#" className="primary-btn pricing-btn">Enroll now</Link>
+                <Link to="#" className="thumb-icon"><i className="fa fa-picture-o"></i></Link>
             </div>
         </div>
     );

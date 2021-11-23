@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom';
+
 const Carousel = () => {
     return (
         <section className="hero-section">
@@ -9,7 +11,7 @@ const Carousel = () => {
                                 <div className="hi-text">
                                     <span>Shape your body</span>
                                     <h1>Be <strong>strong</strong> traning hard</h1>
-                                    <a href="#" className="primary-btn">Get info</a>
+                                    <Link to="#" className="primary-btn">Get info</Link>
                                 </div>
                             </div>
                         </div>
@@ -22,7 +24,7 @@ const Carousel = () => {
                                 <div className="hi-text">
                                     <span>Shape your body</span>
                                     <h1>Be <strong>strong</strong> traning hard</h1>
-                                    <a href="#" className="primary-btn">Get info</a>
+                                    <Link to="#" className="primary-btn">Get info</Link>
                                 </div>
                             </div>
                         </div>

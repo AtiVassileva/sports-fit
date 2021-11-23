@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom';
+
 const Post = ({
     imageUrl,
     title,
@@ -11,7 +13,7 @@ const Post = ({
                 <img src={imageUrl} alt="" />
             </div>
             <div class="bi-text">
-                <h5><a href="/">{title}</a></h5>
+                <h5><Link to="/">{title}</Link></h5>
                 <ul>
                     <li>{author}</li>
                     <li>{date}</li>

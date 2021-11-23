@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom';
+
 const Title = ({
     formType
 }) => {
@@ -10,7 +12,7 @@ const Title = ({
                         <div class="breadcrumb-text">
                             <h2>New {formType}</h2>
                             <div class="bt-option">
-                                <a href="/">Home</a>
+                                <Link to="/">Home</Link>
                                 <span>Blog</span>
                             </div>
                         </div>
