@@ -13,9 +13,6 @@ import Footer from '../Common/Footer';
 const HomePage = () => {
     return (
         <div>
-            <MenuOverlay/>
-            <MenuWrapper/>
-            <Header />
             <Carousel />
             <Benefits />
             <Exercises />
@@ -23,7 +20,6 @@ const HomePage = () => {
             <Pricing />
             <Gallery />
             <Contact/>
-            <Footer />
         </div>
     );
 }

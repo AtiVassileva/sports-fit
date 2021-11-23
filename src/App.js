@@ -1,16 +1,26 @@
+import Header from './components/Common/Header';
+import Footer from './components/Common/Footer';
+import MenuOverlay from './components/Common/MenuOverlay';
+import MenuWrapper from './components/Common/MenuWrapper';
 import Home from './components/Home/Home';
 import Blog from './components/Blog/Blog';
-import CreateArticle from './components/Forms/CreateArticle'
+import CreateArticle from './components/Forms/Create/CreateArticle'
 import { Route, Switch } from 'react-router-dom';
+import Register from './components/Forms/Authentication/Register/Register';
 
 function App() {
   return (
     <div>
+      <MenuOverlay />
+      <MenuWrapper />
+      <Header />
       <Switch>
         <Route path="/" exact component={Home} />
         <Route path="/blog" component={Blog} />
         <Route path="/create-article" component={CreateArticle} />
+        <Route path="/register" component={Register} />
       </Switch>
+      <Footer />
     </div>
   );
 }

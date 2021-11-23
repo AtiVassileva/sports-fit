@@ -10,10 +10,9 @@ const Title = ({
                 <div class="row">
                     <div class="col-lg-12 text-center">
                         <div class="breadcrumb-text">
-                            <h2>New {formType}</h2>
+                            <h2>{formType}</h2>
                             <div class="bt-option">
                                 <Link to="/">Home</Link>
-                                <span>Blog</span>
                             </div>
                         </div>
                     </div>
