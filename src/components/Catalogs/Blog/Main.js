@@ -1,5 +1,5 @@
 import Post from "./Post";
-import Pagination from "./Pagination";
+import Pagination from "../Pagination";
 import Categories from "./Categories";
 
 const Main = () => {
@@ -49,7 +49,7 @@ const Main = () => {
                             labore et dolore magna aliqua accumsan lacus facilisis."
                         />
                         
-                        <Pagination/>
+                        <Pagination appSection="blog"/>
                     </div>
                     <Categories/>
                 </div>

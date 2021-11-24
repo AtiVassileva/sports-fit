@@ -1,4 +1,4 @@
-import Diet from "./Diet";
+import Pagination from "../Pagination";
 
 const Main = () => {
     return (
@@ -64,6 +64,7 @@ const Main = () => {
                         </div>
                     </div>
                 </div>
+                <Pagination appSection="diets"/>
             </div>
         </section>
     );
