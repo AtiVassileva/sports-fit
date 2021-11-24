@@ -1,10 +1,10 @@
-import Title from './Title';
+import Title from '../Title';
 import Main from './Main';
 
 const BlogPage = () => {
     return (
         <div>
-            <Title />
+            <Title heading="Our Blog" />
             <Main />
         </div>
     );
