@@ -10,6 +10,7 @@ import { Route, Switch } from 'react-router-dom';
 import Register from './components/Forms/Authentication/Register/Register';
 import Login from './components/Forms/Authentication/Login/Login';
 import Diets from './components/Catalogs/Diets/Diets';
+import CreateDiet from './components/Forms/Create/CreateDiet';
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
         <Route path="/" exact component={Home} />
         <Route path="/blog" component={Blog} />
         <Route path="/create-article" component={CreateArticle} />
+        <Route path="/create-diet" component={CreateDiet} />
         <Route path="/diets" component={Diets} />
         <Route path="/register" component={Register} />
         <Route path="/login" component={Login} />

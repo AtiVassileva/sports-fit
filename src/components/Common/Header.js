@@ -25,7 +25,13 @@ const Header = () => {
                                     <NavLink to="/diets">Diets</NavLink>
                                 </li>
                                 <li>
+                                    <NavLink to="/create-diet">New Diet</NavLink>
+                                </li>
+                                <li>
                                     <NavLink to="/blog">Blog</NavLink>
+                                </li>
+                                <li>
+                                    <NavLink to="/create-article">New Article</NavLink>
                                 </li>
                                 <li>
                                     <NavLink to="/contact">Contact

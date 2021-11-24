@@ -5,7 +5,7 @@ const CreateArticle = () => {
     return (
         <div>
             <Title formType="New Article"/> 
-            <Main/>
+            <Main action="create-article"/>
         </div>
     );
 }
