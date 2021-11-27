@@ -1,20 +1,21 @@
 const CreateDietForm = () => {
     return (
-        <section class="contact-section spad">
+        <div>
+            <section class="contact-section spad">
             <div class="container">
                 <div class="row">
                     <div class="col-lg-6">
                         <div class="leave-comment">
                             <form action="/create-diet" method="post">
-                                <input type="text" 
-                                name="name"
-                                placeholder="Name" />
-                                <input type="url" 
-                                name="imageUrl"
-                                placeholder="Image URL" />
-                                <textarea 
-                                name="description"
-                                placeholder="Description">          
+                                <input type="text"
+                                    name="name"
+                                    placeholder="Name" />
+                                <input type="url"
+                                    name="imageUrl"
+                                    placeholder="Image URL" />
+                                <textarea
+                                    name="description"
+                                    placeholder="Description">
                                 </textarea>
                                 <button type="submit">Submit</button>
                             </form>
@@ -23,6 +24,7 @@ const CreateDietForm = () => {
                 </div>
             </div>
         </section>
+        </div>
     );
 }
 

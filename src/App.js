@@ -10,7 +10,7 @@ import { Route, Switch } from 'react-router-dom';
 import Register from './components/Forms/Authentication/Register/Register';
 import Login from './components/Forms/Authentication/Login/Login';
 import Diets from './components/Catalogs/Diets/Diets';
-import CreateDiet from './components/Forms/Diets/CreateDiet'
+import CreateDiet from './components/Forms/Diets/CreateDiet';
 
 function App() {
   return (
