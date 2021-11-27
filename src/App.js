@@ -5,12 +5,12 @@ import MenuOverlay from './components/Common/MenuOverlay';
 import MenuWrapper from './components/Common/MenuWrapper';
 import Home from './components/Home/Home';
 import Blog from './components/Catalogs/Blog/Blog';
-import CreateArticle from './components/Forms/Create/CreateArticle'
+import CreateArticle from './components/Forms/Blog/CreateArticle'
 import { Route, Switch } from 'react-router-dom';
 import Register from './components/Forms/Authentication/Register/Register';
 import Login from './components/Forms/Authentication/Login/Login';
 import Diets from './components/Catalogs/Diets/Diets';
-import CreateDiet from './components/Forms/Create/CreateDiet';
+import CreateDiet from './components/Forms/Diets/CreateDiet'
 
 function App() {
   return (
@@ -23,7 +23,7 @@ function App() {
         <Route path="/" exact component={Home} />
         <Route path="/blog" component={Blog} />
         <Route path="/create-article" component={CreateArticle} />
-        <Route path="/create-diet" component={CreateDiet} />
+        <Route path="/create-diet" component={CreateDiet}/>
         <Route path="/diets" component={Diets} />
         <Route path="/register" component={Register} />
         <Route path="/login" component={Login} />

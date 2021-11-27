@@ -1,11 +1,11 @@
-import Main from '../Main';
 import Title from '../Title';
+import CreateArticleForm from './CreateArticleForm';
 
 const CreateArticle = () => {
     return (
         <div>
             <Title formType="New Article"/> 
-            <Main action="create-article"/>
+            <CreateArticleForm/>
         </div>
     );
 }

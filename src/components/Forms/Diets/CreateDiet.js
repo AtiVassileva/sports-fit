@@ -1,11 +1,11 @@
-import Main from '../Main';
 import Title from '../Title';
+import CreateDietForm from './CreateDietForm';
 
 const CreateDiet = () => {
     return (
         <div>
             <Title formType="New Diet"/> 
-            <Main action="create-diet"/>
+            <CreateDietForm/>
         </div>
     );
 }
