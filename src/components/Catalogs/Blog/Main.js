@@ -10,8 +10,11 @@ const Main = () => {
 
     useEffect(() => {
         let allArticles = blogService.getAllArticles();
-        setArticles(allArticles);
-        console.log(articles);
+        console.log(allArticles);
+        
+        setTimeout(() => {
+            setArticles(allArticles);
+        }, 50);
     }, []);
 
     return (
@@ -19,9 +22,13 @@ const Main = () => {
             <div className="container">
                 <div className="row">
                     <div className="col-lg-8 p-0">
-                        { blogService.getAllArticles().map(x =>
-                            <div>{x.title}</div>
-                        )
+                        {articles
+                            .map(x =>
+                                <Post
+                                    key={x.id}
+                                    article={x}
+                                />
+                            )
                         }
 
                         <Pagination appSection="blog" />

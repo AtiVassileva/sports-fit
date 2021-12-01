@@ -1,23 +1,20 @@
 import { Link } from 'react-router-dom';
 
 const Post = ({
-    imageUrl,
-    title,
-    author = "me",
-    content
+    article
 }) => {
     return (
         <div className="blog-item">
             <div className="bi-pic">
-                <img src={imageUrl} alt="" />
+                <img src={article.imageUrl} alt="" />
             </div>
             <div className="bi-text">
-                <h5><Link to="/">{title}</Link></h5>
+                <h5><Link to="/">{article.title}</Link></h5>
                 <ul>
-                    <li>{author}</li>
+                    <li>Author Name</li>
                     <li>02.03.2020</li>
                 </ul>
-                <p>{content}</p>
+                <p>{article.content}</p>
             </div>
         </div>
     );
