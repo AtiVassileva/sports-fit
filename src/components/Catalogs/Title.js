@@ -4,13 +4,13 @@ const Title = ({
     heading
 }) => {
     return (
-        <section class="breadcrumb-section set-bg" style={{ backgroundImage: "url('img/breadcrumb-bg.jpg')"}}>
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-12 text-center">
-                        <div class="breadcrumb-text">
+        <section className="breadcrumb-section set-bg" style={{ backgroundImage: "url('img/breadcrumb-bg.jpg')"}}>
+            <div className="container">
+                <div className="row">
+                    <div className="col-lg-12 text-center">
+                        <div className="breadcrumb-text">
                             <h2>{heading}</h2>
-                            <div class="bt-option">
+                            <div className="bt-option">
                                 <Link to="/">Home</Link>
                             </div>
                         </div>

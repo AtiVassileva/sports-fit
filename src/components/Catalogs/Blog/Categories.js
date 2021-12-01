@@ -3,10 +3,10 @@ import { Link } from 'react-router-dom';
 
 const Categories = () => {
     return(
-        <div class="col-lg-4 col-md-8 p-0">
-                        <div class="sidebar-option">
-                            <div class="so-categories">
-                                <h5 class="title">Categories</h5>
+        <div className="col-lg-4 col-md-8 p-0">
+                        <div className="sidebar-option">
+                            <div className="so-categories">
+                                <h5 className="title">Categories</h5>
                                 <ul>
                                     <li><Link to="#">Yoga <span>12</span></Link></li>
                                     <li><Link to="#">Runing <span>32</span></Link></li>

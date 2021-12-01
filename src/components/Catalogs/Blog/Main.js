@@ -1,57 +1,32 @@
 import Post from "./Post";
 import Pagination from "../Pagination";
 import Categories from "./Categories";
+import { useState, useEffect } from "react";
+import * as blogService from "../../../services/blogService";
 
 const Main = () => {
+
+    const [articles, setArticles] = useState([]);
+
+    useEffect(() => {
+        let allArticles = blogService.getAllArticles();
+        setArticles(allArticles);
+        console.log(articles);
+    }, []);
+
     return (
-        <section class="blog-section spad">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-8 p-0">
-                        <Post
-                            imageUrl="img/blog/blog-1.jpg"
-                            title="Vegan White Peach Mug Cobbler With Cardam Vegan White Peach Mug Cobbler..."
-                            author="By Admin"
-                            date="Aug,15, 2019"
-                            content="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed eiusmod tempor incididunt ut
-                            labore et dolore magna aliqua accumsan lacus facilisis."
-                        />
-                        <Post
-                            imageUrl="img/blog/blog-2.jpg"
-                            title="Vegan White Peach Mug Cobbler With Cardam Vegan White Peach Mug Cobbler..."
-                            author="By Admin"
-                            date="Aug,15, 2019"
-                            content="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed eiusmod tempor incididunt ut
-                            labore et dolore magna aliqua accumsan lacus facilisis."
-                        />
-                        <Post
-                            imageUrl="img/blog/blog-3.jpg"
-                            title="Vegan White Peach Mug Cobbler With Cardam Vegan White Peach Mug Cobbler..."
-                            author="By Admin"
-                            date="Aug,15, 2019"
-                            content="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed eiusmod tempor incididunt ut
-                            labore et dolore magna aliqua accumsan lacus facilisis."
-                        />
-                        <Post
-                            imageUrl="img/blog/blog-4.jpg"
-                            title="Vegan White Peach Mug Cobbler With Cardam Vegan White Peach Mug Cobbler..."
-                            author="By Admin"
-                            date="Aug,15, 2019"
-                            content="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed eiusmod tempor incididunt ut
-                            labore et dolore magna aliqua accumsan lacus facilisis."
-                        />
-                        <Post
-                            imageUrl="img/blog/blog-5.jpg"
-                            title="Vegan White Peach Mug Cobbler With Cardam Vegan White Peach Mug Cobbler..."
-                            author="By Admin"
-                            date="Aug,15, 2019"
-                            content="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed eiusmod tempor incididunt ut
-                            labore et dolore magna aliqua accumsan lacus facilisis."
-                        />
-                        
-                        <Pagination appSection="blog"/>
+        <section className="blog-section spad">
+            <div className="container">
+                <div className="row">
+                    <div className="col-lg-8 p-0">
+                        { blogService.getAllArticles().map(x =>
+                            <div>{x.title}</div>
+                        )
+                        }
+
+                        <Pagination appSection="blog" />
                     </div>
-                    <Categories/>
+                    <Categories />
                 </div>
             </div>
         </section>
