@@ -1,6 +1,7 @@
 import db from '../../../firebase';
 import { onSnapshot, collection } from 'firebase/firestore';
 import { useState, useEffect } from "react";
+import * as blogService from '../../../services/blogService';
 
 const CreateArticleForm = () => {
 
@@ -14,6 +15,15 @@ const CreateArticleForm = () => {
                         ({ ...doc.data(), id: doc.id })))
                 , []));
 
+    const submitHandler = (e) => {
+        e.preventDefault();
+
+        let formData = new FormData(e.currentTarget);
+        let { title, imageUrl, categoryId, content } = Object.fromEntries(formData);
+
+        blogService.createNewArticle(title, imageUrl, content, categoryId);
+    }
+
     return (
         <section className="contact-section spad">
             <div className="container">
@@ -25,20 +35,25 @@ const CreateArticleForm = () => {
                                 New article
                             </h3>
                             <br />
-                            <form action="/create-article" method="post">
+                            <form action="/create-article"
+                                method="post"
+                                onSubmit={submitHandler}
+                            >
                                 <input type="text"
                                     name="title"
                                     placeholder="Title" />
                                 <input type="url"
                                     name="imageUrl"
                                     placeholder="Image URL" />
-                                <select className="form-select" aria-label="Default select example">
-                                    <option selected>Choose a category</option>
+                                <select className="form-select"
+                                    name="categoryId"
+                                    aria-label="Default select example">
+                                    <option defaultValue>Choose a category</option>
                                     {categories
                                         .map(x =>
                                             <option
                                                 key={x.id}
-                                                value={x.name}>
+                                                value={x.id}>
                                                 {x.name}
                                             </option>
                                         )}
