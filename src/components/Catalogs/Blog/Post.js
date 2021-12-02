@@ -14,7 +14,9 @@ const Post = ({
                     <li>Author Name</li>
                     <li>02.03.2020</li>
                 </ul>
-                <p>{article.content}</p>
+                <p>{article.content.substring(0, 200) + '... '}
+                <Link to={`/details/${article.id}`}>Read more...</Link>
+                </p>
             </div>
         </div>
     );

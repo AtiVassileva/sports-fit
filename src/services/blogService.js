@@ -13,9 +13,9 @@ export const getAllArticles = () => {
     return articles;
 }
 
-export const createNewArticle = async (title, imageUrl, content, categoryId,) => {
-        const collectionRef = collection(db, "articles");
-        let payload = { title, imageUrl, categoryId, content };
+export const createNewArticle = async (title, imageUrl, content, categoryId) => {
+    const collectionRef = collection(db, "articles");
+    let payload = { title, imageUrl, categoryId, content };
 
-        await addDoc(collectionRef, payload);
-    }
+    await addDoc(collectionRef, payload);
+}

@@ -1,19 +1,17 @@
-import db from '../../../firebase';
-import { onSnapshot, collection } from 'firebase/firestore';
 import { useState, useEffect } from "react";
 import * as blogService from '../../../services/blogService';
+import * as categoryService from '../../../services/categoryService';
 
 const CreateArticleForm = () => {
 
     const [categories, setCategories] = useState([]);
 
-    useEffect(
-        () =>
-            onSnapshot(collection(db, 'Categories'),
-                (snapshot) =>
-                    setCategories(snapshot.docs.map((doc) =>
-                        ({ ...doc.data(), id: doc.id })))
-                , []));
+    useEffect(() => {
+        let categories = categoryService.getAllCategories();
+        setTimeout(() => {
+            setCategories(categories);
+        }, 500);
+    }, []);
 
     const submitHandler = (e) => {
         e.preventDefault();

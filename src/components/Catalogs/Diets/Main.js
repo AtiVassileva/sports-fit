@@ -13,8 +13,6 @@ const Main = () => {
         setTimeout(() => {
             setDiets(diets);
         }, 500);
-
-        console.log(diets);
     }, []);
 
     return (
