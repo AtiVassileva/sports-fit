@@ -15,12 +15,6 @@ const Header = () => {
                     <div className="col-lg-6">
                         <nav className="nav-menu">
                             <ul>
-                                <li className="active">
-                                    <NavLink to="/">Home</NavLink>
-                                </li>
-                                <li>
-                                    <NavLink to="/about">About Us</NavLink>
-                                </li>
                                 <li>
                                     <NavLink to="/diets">Diets</NavLink>
                                 </li>
@@ -28,14 +22,16 @@ const Header = () => {
                                     <NavLink to="/create-diet">New Diet</NavLink>
                                 </li>
                                 <li>
+                                    <NavLink to="/exercises">Exercises</NavLink>
+                                </li>
+                                <li>
+                                    <NavLink to="/create-exercise">New Exercise</NavLink>
+                                </li>
+                                <li>
                                     <NavLink to="/blog">Blog</NavLink>
                                 </li>
                                 <li>
                                     <NavLink to="/create-article">New Article</NavLink>
-                                </li>
-                                <li>
-                                    <NavLink to="/contact">Contact
-                                    </NavLink>
                                 </li>
                             </ul>
                         </nav>
@@ -47,18 +43,7 @@ const Header = () => {
                                 </NavLink>
                                 <NavLink to="/register">Register
                                 </NavLink>
-                                <NavLink to="#">
-                                    <i className="fa fa-facebook"></i>
-                                </NavLink>
-                                <NavLink to="#">
-                                    <i className="fa fa-twitter"></i>
-                                </NavLink>
-                                <NavLink to="#">
-                                    <i className="fa fa-youtube-play"></i>
-                                </NavLink>
-                                <NavLink to="#">
-                                    <i className="fa fa-instagram"></i>
-                                </NavLink>
+                                
                             </div>
                         </div>
                     </div>

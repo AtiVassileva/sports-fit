@@ -11,6 +11,7 @@ import Register from './components/Forms/Authentication/Register/Register';
 import Login from './components/Forms/Authentication/Login/Login';
 import Diets from './components/Catalogs/Diets/Diets';
 import CreateDiet from './components/Forms/Diets/CreateDiet';
+import CreateExercise from './components/Forms/Exercises/CreateExercise';
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
         <Route path="/blog" component={Blog} />
         <Route path="/create-article" component={CreateArticle} />
         <Route path="/create-diet" component={CreateDiet}/>
+        <Route path="/create-exercise" component={CreateExercise}/>
         <Route path="/diets" component={Diets} />
         <Route path="/register" component={Register} />
         <Route path="/login" component={Login} />
