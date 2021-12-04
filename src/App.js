@@ -12,6 +12,7 @@ import Login from './components/Forms/Authentication/Login/Login';
 import Diets from './components/Catalogs/Diets/Diets';
 import CreateDiet from './components/Forms/Diets/CreateDiet';
 import CreateExercise from './components/Forms/Exercises/CreateExercise';
+import Exercises from './components/Catalogs/Exercises/Exercises';
 
 function App() {
   return (
@@ -27,6 +28,7 @@ function App() {
         <Route path="/create-diet" component={CreateDiet}/>
         <Route path="/create-exercise" component={CreateExercise}/>
         <Route path="/diets" component={Diets} />
+        <Route path="/exercises" component={Exercises} />
         <Route path="/register" component={Register} />
         <Route path="/login" component={Login} />
       </Switch>
