@@ -8,11 +8,8 @@ const Main = () => {
     const [exercises, setExercises] = useState([]);
 
     useEffect(() => {
-        let exercises = exerciseService.getAllExercises();
-
-        setTimeout(() => {
-            setExercises(exercises);
-        }, 500);
+        exerciseService.getAllExercises()
+        .then(exercises => setExercises(exercises));
     }, []);
 
     return (

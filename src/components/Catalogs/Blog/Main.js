@@ -9,11 +9,8 @@ const Main = () => {
     const [articles, setArticles] = useState([]);
 
     useEffect(() => {
-        let articles = blogService.getAllArticles();
-        
-        setTimeout(() => {
-            setArticles(articles);
-        }, 500);
+        blogService.getAllArticles()
+        .then(articles => setArticles(articles));
     }, []);
 
     return (

@@ -7,10 +7,8 @@ const CreateExerciseForm = () => {
     const [categories, setCategories] = useState([]);
 
     useEffect(() => {
-        let categories = categoryService.getAllCategories();
-        setTimeout(() => {
-            setCategories(categories);
-        }, 1000);
+        categoryService.getAllCategories()
+        .then(categories => setCategories(categories));
     }, []);
 
     const submitHandler = (e) => {

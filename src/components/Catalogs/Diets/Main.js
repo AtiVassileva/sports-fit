@@ -8,11 +8,8 @@ const Main = () => {
     const [diets, setDiets] = useState([]);
 
     useEffect(() => {
-        let diets = dietService.getAllDiets();
-
-        setTimeout(() => {
-            setDiets(diets);
-        }, 500);
+        dietService.getAllDiets()
+        .then(diets => setDiets(diets));
     }, []);
 
     return (

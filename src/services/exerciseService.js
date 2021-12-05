@@ -1,14 +1,15 @@
-import { onSnapshot, collection, addDoc } from "@firebase/firestore";
+import { collection, addDoc, getDocs } from "@firebase/firestore";
 import db from '../firebase';
 
-export const getAllExercises = () => {
+export const getAllExercises = async () => {
     let exercises = [];
 
-    onSnapshot(collection(db, 'exercises'),
-        (snapshot) => snapshot.docs.forEach((doc) => {
-            let exercise = { ...doc.data(), id: doc.id };
-            exercises.unshift(exercise);
-        }));
+    const querySnapshot = await getDocs(collection(db, 'exercises'));
+
+    querySnapshot.forEach((doc) => {
+        let exercise = { ...doc.data(), id: doc.id };
+        exercises.unshift(exercise);
+    });
 
     return exercises;
 }
