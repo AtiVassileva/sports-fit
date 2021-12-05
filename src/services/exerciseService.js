@@ -1,4 +1,4 @@
-import { collection, addDoc, getDocs } from "@firebase/firestore";
+import { collection, addDoc, getDocs, doc, getDoc } from "@firebase/firestore";
 import db from '../firebase';
 
 export const getAllExercises = async () => {
@@ -19,4 +19,13 @@ export const createNewExercise = async (name, imageUrl, categoryId, description)
     let payload = { name, imageUrl, categoryId, description };
 
     await addDoc(collectionRef, payload);
+}
+
+export const findExercise = async (id) => {
+    const docRef = doc(db, "exercises", id);
+    const docSnap = await getDoc(docRef);
+
+    let exercise = docSnap.data();
+    
+    return exercise;
 }

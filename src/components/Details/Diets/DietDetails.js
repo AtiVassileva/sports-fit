@@ -3,7 +3,7 @@ import * as dietService from '../../../services/dietService';
 import Content from "../Content";
 import Title from "../Title";
 
-const ArticleDetails = ({
+const DietDetails = ({
     match
 }) => {
 
@@ -29,4 +29,4 @@ const ArticleDetails = ({
     );
 }
 
-export default ArticleDetails;
+export default DietDetails;
