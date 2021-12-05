@@ -1,4 +1,4 @@
-import CommentSection from "./Blog/Comments/CommentSection";
+import CommentSection from "./Comments/CommentSection";
 
 const Content = ({
     content

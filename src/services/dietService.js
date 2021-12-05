@@ -1,4 +1,4 @@
-import { collection, addDoc, getDocs } from "@firebase/firestore";
+import { collection, addDoc, getDocs, doc, getDoc } from "@firebase/firestore";
 import db from '../firebase';
 
 export const getAllDiets = async () => {
@@ -19,4 +19,13 @@ export const createNewDiet = async (name, imageUrl, description) => {
     let payload = { name, imageUrl, description };
 
     await addDoc(collectionRef, payload);
+}
+
+export const findDiet = async (id) => {
+    const docRef = doc(db, "diets", id);
+    const docSnap = await getDoc(docRef);
+
+    let diet = docSnap.data();
+    
+    return diet;
 }

@@ -12,7 +12,8 @@ const Diet = ({
                 <div className="bi-text">
                     <h5><Link to={`/details/${diet.id}`}>{diet.name}</Link></h5>
                     <p>{diet.description.substring(0, 500) + '... '}
-                    <Link to={`/details/${diet.id}`}>Read more...</Link>
+                    <Link to={`/diets/details/${diet.id}`}>Read more...
+                    </Link>
                     </p>
                 </div>
             </div>

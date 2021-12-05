@@ -12,7 +12,6 @@ const CommentSection = () => {
             </div>
             <CommentForm />
         </div>
-
     );
 }
 
