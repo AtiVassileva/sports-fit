@@ -23,6 +23,7 @@ function App() {
       <MenuWrapper />
       <Header />
       <Switch>
+        <Route path="/" exact component={Home} />
         <Route path="/blog" exact component={Blog} />
         <Route path="/create-article" component={CreateArticle} />
         <Route path="/create-diet" component={CreateDiet}/>
@@ -32,7 +33,6 @@ function App() {
         <Route path="/blog/details/:id" component={ArticleDetails} />
         <Route path="/register" component={Register} />
         <Route path="/login" component={Login} />
-        <Route path="/" exact component={Home} />
       </Switch>
       <Footer />
     </div>
