@@ -13,11 +13,11 @@ const CreateDietForm = () => {
 
     return (
         <div>
-            <section class="contact-section spad">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-6">
-                        <div class="leave-comment">
+            <section className="contact-section spad">
+            <div className="container">
+                <div className="row">
+                    <div className="col-lg-6">
+                        <div className="leave-comment">
                             <form action="/create-diet" method="post"
                             onSubmit={submitHandler}>
                                 <input type="text"

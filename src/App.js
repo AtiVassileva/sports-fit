@@ -13,7 +13,7 @@ import Diets from './components/Catalogs/Diets/Diets';
 import CreateDiet from './components/Forms/Diets/CreateDiet';
 import CreateExercise from './components/Forms/Exercises/CreateExercise';
 import Exercises from './components/Catalogs/Exercises/Exercises';
-import ArticleDetails from './components/Details/ArticleDetails'
+import ArticleDetails from './components/Details/Blog/ArticleDetails';
 
 function App() {
   return (
@@ -23,8 +23,7 @@ function App() {
       <MenuWrapper />
       <Header />
       <Switch>
-        <Route path="/" exact component={Home} />
-        <Route path="/blog" component={Blog} />
+        <Route path="/blog" exact component={Blog} />
         <Route path="/create-article" component={CreateArticle} />
         <Route path="/create-diet" component={CreateDiet}/>
         <Route path="/create-exercise" component={CreateExercise}/>
@@ -33,6 +32,7 @@ function App() {
         <Route path="/blog/details/:id" component={ArticleDetails} />
         <Route path="/register" component={Register} />
         <Route path="/login" component={Login} />
+        <Route path="/" exact component={Home} />
       </Switch>
       <Footer />
     </div>
