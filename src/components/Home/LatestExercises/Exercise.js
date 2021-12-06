@@ -1,16 +1,32 @@
+import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import * as categoryService from '../../../services/categoryService';
 
-const Exercise = () => {
+const Exercise = ({
+  id,
+  name,
+  imageUrl,
+  categoryId
+}) => {
+  const [category, setCategory] = useState({});
+
+  useEffect(() => {
+    categoryService.findCategory(categoryId)
+      .then(category => setCategory(category));
+  })
+
   return (
     <div className="col-lg-4 col-md-6">
       <div className="class-item">
         <div className="ci-pic">
-          <img src="img/classes/class-2.jpg" alt="" />
+          <img src={imageUrl} alt="" />
         </div>
         <div className="ci-text">
-          <span>Cardio</span>
-          <h5>Indoor cycling</h5>
-          <Link to="#"><i className="fa fa-angle-right"></i></Link>
+          <span>{category.name}</span>
+          <h5>{name}</h5>
+          <Link to={`/exercises/details/${id}`}>
+            <i className="fa fa-angle-right"></i>
+          </Link>
         </div>
       </div>
     </div>

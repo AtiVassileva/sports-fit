@@ -32,6 +32,6 @@ export const findExercise = async (id) => {
 }
 
 export const getLatestExercises = async () => {
-    const querySnapshot = await getDocs(collection(db, 'exercises'));
-    //const q = query(querySnapshot, limit(3));
+    return await getAllExercises()
+    .then(exercises => exercises.slice(0, 3));
 }

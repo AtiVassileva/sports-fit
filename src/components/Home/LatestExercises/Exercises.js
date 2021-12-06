@@ -4,12 +4,12 @@ import * as exerciseService from '../../../services/exerciseService';
 
 const Exercises = () => {
 
-    const [latestExercises, setLatestExercises] = [];
+    const [latestExercises, setLatestExercises] = useState([]);
 
     useEffect(() => {
         exerciseService.getLatestExercises()
-            .then(res => console.log(res));
-    })
+            .then(exercises => setLatestExercises(exercises));
+    }, [])
     return (
         <section className="classes-section spad">
             <div className="container">
@@ -22,9 +22,17 @@ const Exercises = () => {
                     </div>
                 </div>
                 <div className="row">
-                    <Exercise />
-                    <Exercise />
-                    <Exercise />
+                    {latestExercises
+                        .map(x =>
+                            <Exercise
+                                key={x.id}
+                                id={x.id}
+                                name={x.name}
+                                imageUrl={x.imageUrl}
+                                categoryId={x.categoryId}
+                            />
+                        )
+                    }
                 </div>
             </div>
         </section>
