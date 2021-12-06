@@ -7,7 +7,7 @@ const Contact = () => {
                 <div className="row">
                     <ContactDetail
                         icon="fa fa-map-marker"
-                        text="333 Middle Winchendon Rd, Rindge"
+                        text="Sofia, Bulgaria"
                     />
                     <ContactDetail
                         icon="fa fa-mobile"
