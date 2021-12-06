@@ -1,5 +1,6 @@
 import Header from './components/Common/Header';
 import Footer from './components/Common/Footer';
+import About from './components/Common/About/About';
 import Preloader from './components/Common/Preloader';
 import MenuOverlay from './components/Common/MenuOverlay';
 import MenuWrapper from './components/Common/MenuWrapper';
@@ -26,6 +27,7 @@ function App() {
       <Header />
       <Switch>
         <Route path="/" exact component={Home} />
+        <Route path="/about" component={About} />
         <Route path="/blog" exact component={Blog} />
         <Route path="/create-article" component={CreateArticle} />
         <Route path="/create-diet" component={CreateDiet}/>
