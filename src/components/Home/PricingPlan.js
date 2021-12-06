@@ -17,8 +17,12 @@ const PricingPlan = () => {
                     <li>Month to mouth</li>
                     <li>No time restriction</li>
                 </ul>
-                <Link to="#" className="primary-btn pricing-btn">Enroll now</Link>
-                <Link to="#" className="thumb-icon"><i className="fa fa-picture-o"></i></Link>
+                <Link to="#" className="primary-btn pricing-btn">
+                    Enroll now
+                </Link>
+                <Link to="#" className="thumb-icon">
+                    <i className="fa fa-picture-o"></i>
+                </Link>
             </div>
         </div>
     );

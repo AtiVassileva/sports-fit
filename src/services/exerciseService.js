@@ -1,4 +1,5 @@
-import { collection, addDoc, getDocs, doc, getDoc } from "@firebase/firestore";
+import { collection, addDoc, getDocs, doc, getDoc, query, limit } 
+from "@firebase/firestore";
 import db from '../firebase';
 
 export const getAllExercises = async () => {
@@ -28,4 +29,9 @@ export const findExercise = async (id) => {
     let exercise = docSnap.data();
     
     return exercise;
+}
+
+export const getLatestExercises = async () => {
+    const querySnapshot = await getDocs(collection(db, 'exercises'));
+    //const q = query(querySnapshot, limit(3));
 }

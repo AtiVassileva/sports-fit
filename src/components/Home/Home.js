@@ -1,15 +1,13 @@
-import Carousel from './Carousel';
-import Benefits from './Benefits';
+import Benefits from './Benefits/Benefits';
 import Banner from './Banner';
 import Pricing from './Pricing';
-import Gallery from './Gallery';
-import Exercises from './Exercises';
-import Contact from './Contact';
+import Gallery from './Gallery/Gallery';
+import Exercises from './LatestExercises/Exercises';
+import Contact from './Contacts/Contact';
 
 const HomePage = () => {
     return (
         <div>
-            <Carousel />
             <Benefits />
             <Exercises />
             <Banner />
