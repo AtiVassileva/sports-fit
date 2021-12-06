@@ -29,3 +29,8 @@ export const findDiet = async (id) => {
     
     return diet;
 }
+
+export const getLatestDiets = async () => {
+    return await getAllDiets()
+    .then(diets => diets.slice(0, 3));
+}

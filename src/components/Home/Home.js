@@ -1,6 +1,6 @@
 import Benefits from './Benefits/Benefits';
 import Banner from './Banner';
-import Pricing from './Pricing';
+import Diets from './LatestDiets/Diets';
 import Gallery from './Gallery/Gallery';
 import Exercises from './LatestExercises/Exercises';
 import Contact from './Contacts/Contact';
@@ -11,7 +11,7 @@ const HomePage = () => {
             <Benefits />
             <Exercises />
             <Banner />
-            <Pricing />
+            <Diets />
             <Gallery />
             <Contact/>
         </div>
