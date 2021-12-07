@@ -1,14 +1,14 @@
 import { Link } from 'react-router-dom';
 
 const Title = () => {
-    return (<section class="breadcrumb-section set-bg"
+    return (<section className="breadcrumb-section set-bg"
         style={{ backgroundImage: `url("img/breadcrumb-bg.jpg")` }}>
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12 text-center">
-                    <div class="breadcrumb-text">
+        <div className="container">
+            <div className="row">
+                <div className="col-lg-12 text-center">
+                    <div className="breadcrumb-text">
                         <h2>About us</h2>
-                        <div class="bt-option">
+                        <div className="bt-option">
                             <Link to="/">Home</Link>
                         </div>
                     </div>
