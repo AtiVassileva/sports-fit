@@ -8,6 +8,7 @@ const DietDetails = ({
 }) => {
 
     const [diet, setDiet] = useState({});
+    const [id, setId] = useState('');
 
     useEffect(() => {
         let id = match.params.id;
@@ -18,13 +19,20 @@ const DietDetails = ({
         })
     })
 
+    useEffect(() => {
+        setId(match.params.id);
+    }, [match.params.id])
+
 
     return (
         <div>
             <Title imageUrl={diet.imageUrl}
                 title={diet.name}
             />
-            <Content content={diet.description} />
+            <Content content={diet.description}
+            path="/diets"
+            id={id}
+            />
         </div>
     );
 }

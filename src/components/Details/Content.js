@@ -1,7 +1,10 @@
+import {Link} from 'react-router-dom';
 import CommentSection from "./Comments/CommentSection";
 
 const Content = ({
-    content
+    content,
+    path,
+    id
 }) => {
     return (
         <section className="blog-details-section spad">
@@ -11,6 +14,11 @@ const Content = ({
                         <div className="blog-details-text">
                             <div className="blog-details-title">
                                 <p>{content}</p>
+                                <Link to={path + '/edit/' + id} 
+                                class="btn btn-outline-warning">Edit
+                                </Link>
+                                <Link to={path + '/delete/' + id} class="btn btn-outline-danger">Delete
+                                </Link>
                             </div>
                         </div>
                     </div>

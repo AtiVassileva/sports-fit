@@ -5,7 +5,7 @@ const Title = ({
 }) => {
     return (
         <section className="breadcrumb-section set-bg"
-        style={{ backgroundImage: "url('img/hero/hero-2.jpg')"}}>
+        style={{ backgroundImage: "url('/img/hero/hero-2.jpg')"}}>
             <div className="container">
                 <div className="row">
                     <div className="col-lg-12 text-center">
