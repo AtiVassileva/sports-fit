@@ -1,25 +1,26 @@
 import { useState, useEffect } from "react";
-import * as exerciseService from '../../../services/exerciseService';
+import * as blogService from '../../../services/blogService';
 
-const EditExerciseForm = ({
+const EditArticleForm = ({
     id
 }) => {
-    const [currentExercise, setCurrentExercise] = useState({});
+
+    const [currentArticle, setCurrentArticle] = useState({});
 
     useEffect(() => {
-        exerciseService.findExercise(id)
-            .then(exercise => {
-                setCurrentExercise(exercise);
-            });
+        blogService.findArticle(id)
+            .then(article => {
+                setCurrentArticle(article);
+            })
     })
 
     const submitHandler = (e) => {
         e.preventDefault();
 
         let formData = new FormData(e.currentTarget);
-        let { name, imageUrl, description } = Object.fromEntries(formData);
+        let { title, imageUrl, content } = Object.fromEntries(formData);
 
-        exerciseService.editExercise(id, name, imageUrl, description);
+        blogService.editArticle(id, title, imageUrl, content);
     }
 
     return (
@@ -30,7 +31,7 @@ const EditExerciseForm = ({
                         <div className="leave-comment">
                             <h3
                                 style={{ color: "white" }}>
-                                Edit exercise
+                                Edit article
                             </h3>
                             <br />
                             <form
@@ -38,19 +39,19 @@ const EditExerciseForm = ({
                                 onSubmit={submitHandler}
                             >
                                 <input type="text"
-                                    name="name"
-                                    placeholder="Name" 
-                                    defaultValue={currentExercise.name}
+                                    name="title"
+                                    placeholder="Title" 
+                                    defaultValue={currentArticle.title}
                                     />
                                 <input type="url"
                                     name="imageUrl"
-                                    placeholder="Image URL" 
-                                    defaultValue={currentExercise.imageUrl}
+                                    placeholder="Image URL"
+                                    defaultValue={currentArticle.imageUrl} 
                                     />
                                 <textarea
-                                    name="description"
-                                    placeholder="Description"
-                                    defaultValue={currentExercise.description}
+                                    name="content"
+                                    placeholder="Content"
+                                    defaultValue={currentArticle.content}
                                     >
                                 </textarea>
                                 <button type="submit">Submit</button>
@@ -63,4 +64,4 @@ const EditExerciseForm = ({
     );
 }
 
-export default EditExerciseForm;
+export default EditArticleForm;

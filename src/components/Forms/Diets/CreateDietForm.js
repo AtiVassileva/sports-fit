@@ -14,29 +14,34 @@ const CreateDietForm = () => {
     return (
         <div>
             <section className="contact-section spad">
-            <div className="container">
-                <div className="row">
-                    <div className="col-lg-6">
-                        <div className="leave-comment">
-                            <form action="/create-diet" method="post"
-                            onSubmit={submitHandler}>
-                                <input type="text"
-                                    name="name"
-                                    placeholder="Name" />
-                                <input type="url"
-                                    name="imageUrl"
-                                    placeholder="Image URL" />
-                                <textarea
-                                    name="description"
-                                    placeholder="Description">
-                                </textarea>
-                                <button type="submit">Submit</button>
-                            </form>
+                <div className="container">
+                    <div className="row">
+                        <div className="col-lg-6">
+                            <div className="leave-comment">
+                                <h3
+                                    style={{ color: "white" }}>
+                                    New diet
+                                </h3>
+                                <br />
+                                <form action="/create-diet" method="post"
+                                    onSubmit={submitHandler}>
+                                    <input type="text"
+                                        name="name"
+                                        placeholder="Name" />
+                                    <input type="url"
+                                        name="imageUrl"
+                                        placeholder="Image URL" />
+                                    <textarea
+                                        name="description"
+                                        placeholder="Description">
+                                    </textarea>
+                                    <button type="submit">Submit</button>
+                                </form>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        </section>
+            </section>
         </div>
     );
 }
