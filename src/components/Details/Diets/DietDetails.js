@@ -8,7 +8,6 @@ const DietDetails = ({
 }) => {
 
     const [diet, setDiet] = useState({});
-    const [id, setId] = useState('');
 
     useEffect(() => {
         let id = match.params.id;
@@ -16,13 +15,8 @@ const DietDetails = ({
         dietService.findDiet(id)
         .then(diet => {
             setDiet(diet);
-        })
+        });
     })
-
-    useEffect(() => {
-        setId(match.params.id);
-    }, [match.params.id])
-
 
     return (
         <div>
@@ -31,7 +25,7 @@ const DietDetails = ({
             />
             <Content content={diet.description}
             path="/diets"
-            id={id}
+            id={match.params.id}
             />
         </div>
     );

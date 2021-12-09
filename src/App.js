@@ -18,6 +18,7 @@ import ArticleDetails from './components/Details/Blog/ArticleDetails';
 import DietDetails from './components/Details/Diets/DietDetails';
 import ExerciseDetails from './components/Details/Exercises/ExerciseDetails';
 import EditDiet from './components/Forms/Diets/EditDiet';
+import EditExercise from './components/Forms/Exercises/EditExercise';
 
 function App() {
   return (
@@ -41,6 +42,7 @@ function App() {
         <Route path="/register" component={Register} />
         <Route path="/login" component={Login} />
         <Route path="/diets/edit/:id" component={EditDiet}/>
+        <Route path="/exercises/edit/:id" component={EditExercise}/>
       </Switch>
       <Footer />
     </div>

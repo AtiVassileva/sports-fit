@@ -13,9 +13,9 @@ const ArticleDetails = ({
         let id = match.params.id;
 
         blogService.findArticle(id)
-        .then(article => {
-            setArticle(article);
-        })
+            .then(article => {
+                setArticle(article);
+            })
     })
 
 
@@ -24,7 +24,10 @@ const ArticleDetails = ({
             <Title imageUrl={article.imageUrl}
                 title={article.title}
             />
-            <Content content={article.content} />
+            <Content content={article.content}
+                path="/blog"
+                id={match.params.id}
+            />
         </div>
     );
 }

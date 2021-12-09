@@ -1,4 +1,4 @@
-import { collection, addDoc, getDocs, doc, getDoc, query, limit } 
+import { collection, addDoc, getDocs, doc, getDoc, setDoc} 
 from "@firebase/firestore";
 import db from '../firebase';
 
@@ -34,4 +34,11 @@ export const findExercise = async (id) => {
 export const getLatestExercises = async () => {
     return await getAllExercises()
     .then(exercises => exercises.slice(0, 3));
+}
+
+export const editExercise = async (id, name, imageUrl, description) => {
+    const docRef = doc(db, "exercises", id);
+    const payload = { name, imageUrl, description};
+    
+    setDoc(docRef, payload);
 }

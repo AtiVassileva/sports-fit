@@ -24,7 +24,10 @@ const ExerciseDetails = ({
             <Title imageUrl={exercise.imageUrl}
                 title={exercise.name}
             />
-            <Content content={exercise.description} />
+             <Content content={exercise.description}
+            path="/exercises"
+            id={match.params.id}
+            />
         </div>
     );
 }
