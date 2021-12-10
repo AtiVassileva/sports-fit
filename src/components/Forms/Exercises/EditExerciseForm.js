@@ -1,9 +1,11 @@
 import { useState, useEffect } from "react";
+import { useHistory } from "react-router-dom";
 import * as exerciseService from '../../../services/exerciseService';
 
 const EditExerciseForm = ({
     id
 }) => {
+    const history = useHistory();
     const [currentExercise, setCurrentExercise] = useState({});
 
     useEffect(() => {
@@ -20,6 +22,7 @@ const EditExerciseForm = ({
         let { name, imageUrl, description } = Object.fromEntries(formData);
 
         exerciseService.editExercise(id, name, imageUrl, description);
+        history.push(`/exercises/details/${id}`);
     }
 
     return (

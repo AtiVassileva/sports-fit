@@ -1,17 +1,18 @@
 import { useState, useEffect } from 'react';
+import { useHistory } from "react-router-dom";
 import * as dietService from '../../../services/dietService';
 
 const EditDietForm = ({
     id
 }) => {
-
+    const history = useHistory();
     const [currentDiet, setCurrentDiet] = useState({});
 
     useEffect(() => {
         dietService.findDiet(id)
             .then(diet => {
                 setCurrentDiet(diet);
-            })
+            });
     })
 
     const submitHandler = (e) => {
@@ -21,6 +22,7 @@ const EditDietForm = ({
         let { name, imageUrl, description } = Object.fromEntries(formData);
 
         dietService.editDiet(id, name, imageUrl, description);
+        history.push(`/diets/details/${id}`);
     }
 
     return (

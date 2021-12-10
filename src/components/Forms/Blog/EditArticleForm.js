@@ -1,10 +1,11 @@
 import { useState, useEffect } from "react";
+import { useHistory } from "react-router-dom";
 import * as blogService from '../../../services/blogService';
 
 const EditArticleForm = ({
-    id
+    id,
 }) => {
-
+    const history = useHistory();
     const [currentArticle, setCurrentArticle] = useState({});
 
     useEffect(() => {
@@ -21,6 +22,7 @@ const EditArticleForm = ({
         let { title, imageUrl, content } = Object.fromEntries(formData);
 
         blogService.editArticle(id, title, imageUrl, content);
+        history.push(`/blog/details/${id}`);
     }
 
     return (
@@ -40,19 +42,19 @@ const EditArticleForm = ({
                             >
                                 <input type="text"
                                     name="title"
-                                    placeholder="Title" 
+                                    placeholder="Title"
                                     defaultValue={currentArticle.title}
-                                    />
+                                />
                                 <input type="url"
                                     name="imageUrl"
                                     placeholder="Image URL"
-                                    defaultValue={currentArticle.imageUrl} 
-                                    />
+                                    defaultValue={currentArticle.imageUrl}
+                                />
                                 <textarea
                                     name="content"
                                     placeholder="Content"
                                     defaultValue={currentArticle.content}
-                                    >
+                                >
                                 </textarea>
                                 <button type="submit">Submit</button>
                             </form>
