@@ -1,4 +1,4 @@
-import { collection, addDoc, getDocs, doc, getDoc, setDoc } from "@firebase/firestore";
+import { collection, addDoc, getDocs, doc, getDoc, setDoc, deleteDoc } from "@firebase/firestore";
 import db from '../firebase';
 
 export const getAllDiets = async () => {
@@ -40,4 +40,8 @@ export const editDiet = async (id, name, imageUrl, description) => {
     const payload = { name, imageUrl, description};
     
     setDoc(docRef, payload);
+}
+
+export const deleteDiet = async (id) => {
+    await deleteDoc(doc(db, "diets", id));
 }
