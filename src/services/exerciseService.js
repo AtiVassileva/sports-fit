@@ -19,7 +19,7 @@ export const createNewExercise = async (name, imageUrl, categoryId, description)
     const collectionRef = collection(db, "exercises");
     let payload = { name, imageUrl, categoryId, description };
 
-    await addDoc(collectionRef, payload);
+    return await addDoc(collectionRef, payload);
 }
 
 export const findExercise = async (id) => {

@@ -19,7 +19,7 @@ export const createNewArticle = async (title, imageUrl, content, categoryId) => 
     const collectionRef = collection(db, "articles");
     let payload = { title, imageUrl, categoryId, content };
 
-    await addDoc(collectionRef, payload);
+    return await addDoc(collectionRef, payload);
 }
 
 export const findArticle = async (id) => {

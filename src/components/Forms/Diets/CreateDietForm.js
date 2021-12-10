@@ -1,6 +1,9 @@
+import { useHistory } from "react-router-dom";
 import * as dietService from '../../../services/dietService';
 
 const CreateDietForm = () => {
+
+    const history = useHistory();
 
     const submitHandler = (e) => {
         e.preventDefault();
@@ -8,7 +11,8 @@ const CreateDietForm = () => {
         let formData = new FormData(e.currentTarget);
         let { name, imageUrl, description } = Object.fromEntries(formData);
 
-        dietService.createNewDiet(name, imageUrl, description);
+        dietService.createNewDiet(name, imageUrl, description)
+        .then(res => history.push(`/diets/details/${res.id}`));
     }
 
     return (

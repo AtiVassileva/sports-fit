@@ -1,14 +1,15 @@
 import { useState, useEffect } from "react";
+import { useHistory } from "react-router-dom";
 import * as blogService from '../../../services/blogService';
 import * as categoryService from '../../../services/categoryService';
 
 const CreateArticleForm = () => {
-
+    const history = useHistory();
     const [categories, setCategories] = useState([]);
 
     useEffect(() => {
         categoryService.getAllCategories()
-        .then(categories => setCategories(categories));
+            .then(categories => setCategories(categories));
     }, []);
 
     const submitHandler = (e) => {
@@ -17,7 +18,8 @@ const CreateArticleForm = () => {
         let formData = new FormData(e.currentTarget);
         let { title, imageUrl, categoryId, content } = Object.fromEntries(formData);
 
-        blogService.createNewArticle(title, imageUrl, content, categoryId);
+        blogService.createNewArticle(title, imageUrl, content, categoryId)
+            .then(res => history.push(`/blog/details/${res.id}`));
     }
 
     return (

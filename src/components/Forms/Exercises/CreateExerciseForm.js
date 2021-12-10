@@ -1,9 +1,10 @@
 import { useState, useEffect } from "react";
+import {useHistory} from "react-router-dom";
 import * as exerciseService from '../../../services/exerciseService';
 import * as categoryService from '../../../services/categoryService';
 
 const CreateExerciseForm = () => {
-
+    const history = useHistory();
     const [categories, setCategories] = useState([]);
 
     useEffect(() => {
@@ -17,7 +18,9 @@ const CreateExerciseForm = () => {
         let formData = new FormData(e.currentTarget);
         let { name, imageUrl, categoryId, description } = Object.fromEntries(formData);
 
-        exerciseService.createNewExercise(name, imageUrl, categoryId, description);
+        exerciseService
+        .createNewExercise(name, imageUrl, categoryId, description)
+        .then(res => history.push(`/exercises/details/${res.id}`));
     }
 
     return (

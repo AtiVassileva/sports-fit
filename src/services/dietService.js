@@ -18,7 +18,7 @@ export const createNewDiet = async (name, imageUrl, description) => {
     const collectionRef = collection(db, "diets");
     let payload = { name, imageUrl, description };
 
-    await addDoc(collectionRef, payload);
+    return await addDoc(collectionRef, payload);
 }
 
 export const findDiet = async (id) => {
