@@ -13,7 +13,7 @@ const Exercise = ({
   useEffect(() => {
     categoryService.findCategory(categoryId)
       .then(category => setCategory(category));
-  })
+  }, [categoryId]);
 
   return (
     <div className="col-lg-4 col-md-6">

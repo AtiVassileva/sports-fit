@@ -1,3 +1,4 @@
+import { Route, Switch } from 'react-router-dom';
 import Header from './components/Common/Header';
 import Footer from './components/Common/Footer';
 import About from './components/Common/About/About';
@@ -7,7 +8,6 @@ import MenuWrapper from './components/Common/MenuWrapper';
 import Home from './components/Home/Home';
 import Blog from './components/Catalogs/Blog/Blog';
 import CreateArticle from './components/Forms/Blog/CreateArticle'
-import { Route, Switch } from 'react-router-dom';
 import Register from './components/Forms/Authentication/Register/Register';
 import Login from './components/Forms/Authentication/Login/Login';
 import Diets from './components/Catalogs/Diets/Diets';

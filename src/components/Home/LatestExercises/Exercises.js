@@ -9,7 +9,7 @@ const Exercises = () => {
     useEffect(() => {
         exerciseService.getLatestExercises()
             .then(exercises => setLatestExercises(exercises));
-    }, [])
+    }, []);
     return (
         <section className="classes-section spad">
             <div className="container">

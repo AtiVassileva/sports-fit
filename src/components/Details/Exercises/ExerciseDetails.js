@@ -15,8 +15,8 @@ const ExerciseDetails = ({
         exerciseService.findExercise(id)
         .then(exercise => {
             setExercise(exercise);
-        })
-    })
+        });
+    }, [match.params.id]);
 
 
     return (

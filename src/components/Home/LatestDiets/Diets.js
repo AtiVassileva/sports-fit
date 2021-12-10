@@ -9,7 +9,7 @@ const Diets = () => {
     useEffect(() => {
         dietService.getLatestDiets()
             .then(diets => setLatestDiets(diets));
-    }, [])
+    }, []);
 
     return (
         <section className="pricing-section spad">

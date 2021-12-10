@@ -13,7 +13,7 @@ const EditDietForm = ({
             .then(diet => {
                 setCurrentDiet(diet);
             });
-    })
+    }, [id]);
 
     const submitHandler = (e) => {
         e.preventDefault();

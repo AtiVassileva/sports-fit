@@ -13,18 +13,12 @@ const MenuWrapper = () => {
                 <ul>
                     <li><Link to="/">Home</Link></li>
                     <li><Link to="/about">About Us</Link></li>
-                    <li><Link to="/classes">Classes</Link></li>
-                    <li><Link to="/services">Services</Link></li>
-                    <li><Link to="/contact">Contact</Link></li>
+                    <li><Link to="/diets">Diets</Link></li>
+                    <li><Link to="/exercises">Exercises</Link></li>
+                    <li><Link to="/blog">Blog</Link></li>
                 </ul>
             </nav>
             <div id="mobile-menu-wrap"></div>
-            <div className="canvas-social">
-                <Link to="#"><i className="fa fa-facebook"></i></Link>
-                <Link to="#"><i className="fa fa-twitter"></i></Link>
-                <Link to="#"><i className="fa fa-youtube-play"></i></Link>
-                <Link to="#"><i className="fa fa-instagram"></i></Link>
-            </div>
         </div>
     );
 }

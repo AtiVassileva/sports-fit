@@ -13,7 +13,7 @@ const EditExerciseForm = ({
             .then(exercise => {
                 setCurrentExercise(exercise);
             });
-    })
+    }, [id]);
 
     const submitHandler = (e) => {
         e.preventDefault();

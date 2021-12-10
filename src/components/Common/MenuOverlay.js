@@ -1,7 +1,6 @@
 const MenuOverlay = () => {
     return(
-        <div className="offcanvas-menu-overlay">
-            
+        <div className="offcanvas-menu-overlay">           
         </div>
     );
 }

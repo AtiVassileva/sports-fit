@@ -45,9 +45,9 @@ const Content = ({
                             <div className="blog-details-title">
                                 <p>{content}</p>
                                 <Link to={path + '/edit/' + id}
-                                    class="btn btn-outline-warning">Edit
+                                    className="btn btn-outline-warning">Edit
                                 </Link>
-                                <button class="btn btn-outline-danger"
+                                <button className="btn btn-outline-danger"
                                     onClick={onDeleteHandler}>
                                     Delete
                                 </button>

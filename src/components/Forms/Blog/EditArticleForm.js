@@ -12,8 +12,8 @@ const EditArticleForm = ({
         blogService.findArticle(id)
             .then(article => {
                 setCurrentArticle(article);
-            })
-    })
+            });
+    }, [id]);
 
     const submitHandler = (e) => {
         e.preventDefault();

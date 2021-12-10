@@ -16,7 +16,7 @@ const DietDetails = ({
         .then(diet => {
             setDiet(diet);
         });
-    })
+    }, [match.params.id]);
 
     return (
         <div>

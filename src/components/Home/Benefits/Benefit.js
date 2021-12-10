@@ -1,5 +1,5 @@
 const Benefit = ({
-    title, 
+    title,
     spanClass,
     text
 }) => {

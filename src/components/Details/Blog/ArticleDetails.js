@@ -15,8 +15,8 @@ const ArticleDetails = ({
         blogService.findArticle(id)
             .then(article => {
                 setArticle(article);
-            })
-    })
+            });
+    }, [match.params.id]);
 
 
     return (
