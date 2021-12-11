@@ -29,7 +29,6 @@ const Exercises = () => {
                                 id={x.id}
                                 name={x.name}
                                 imageUrl={x.imageUrl}
-                                categoryId={x.categoryId}
                             />
                         )
                     }
