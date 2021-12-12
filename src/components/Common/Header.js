@@ -57,7 +57,8 @@ const Header = () => {
                                         <NavLink to="/">Welcome, {currentUser.email}!
                                         </NavLink>
                                         <button 
-                                        className="btn btn-dark"
+                                        className="btn btn-default"
+                                        style={{color:"white"}}
                                         onClick={onLogoutHandler}>
                                             Logout
                                         </button>
