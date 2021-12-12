@@ -21,10 +21,15 @@ const ExerciseDetails = ({
 
     return (
         <div>
-            <Title imageUrl={exercise.imageUrl}
+            <Title 
+                author={exercise.author}
+                imageUrl={exercise.imageUrl}
                 title={exercise.name}
+                date={exercise.date}
             />
-             <Content content={exercise.description}
+            <Content
+            author={exercise.author}
+            content={exercise.description}
             path="/exercises"
             id={match.params.id}
             />

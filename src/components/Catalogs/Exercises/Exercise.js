@@ -11,7 +11,7 @@ const Exercise = ({
                 </div>
                 <div className="bi-text">
                     <h5>
-                        <Link to={`/details/${exercise.id}`}>{exercise.name}</Link>
+                        <Link to={`/exercises/details/${exercise.id}`}>{exercise.name}</Link>
                     </h5>
                     <p>{exercise.description.substring(0, 500) + '... '}
                         <Link to={`/exercises/details/${exercise.id}`}>

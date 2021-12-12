@@ -13,7 +13,7 @@ const Title = ({
                         <div className="bh-text">
                             <h3>{title}</h3>
                             <ul>
-                                <li>Author: {author}</li>
+                                <li>By: {author}</li>
                                 <li>{date}</li>
                             </ul>
                         </div>
