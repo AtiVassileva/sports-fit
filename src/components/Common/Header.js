@@ -1,6 +1,19 @@
-import { NavLink } from 'react-router-dom';
+import { useHistory, NavLink } from 'react-router-dom';
+import { useAuth } from '../../hooks/useAuth';
+import * as authService from '../../services/authService';
 
 const Header = () => {
+    const history = useHistory();
+    const currentUser = useAuth();
+
+    const onLogoutHandler = async () => {
+        try{
+            await authService.logout();
+            history.push('/');
+        } catch(error) {
+            alert(error.message);
+        }
+    }
     return (
         <header className="header-section">
             <div className="container-fluid">
@@ -39,11 +52,25 @@ const Header = () => {
                     <div className="col-lg-3">
                         <div className="top-option">
                             <div className="to-social">
-                                <NavLink to="/login">Login
-                                </NavLink>
-                                <NavLink to="/register">Register
-                                </NavLink>
-                                
+                                {currentUser ?
+                                    <>
+                                        <NavLink to="/">Welcome, {currentUser.email}!
+                                        </NavLink>
+                                        <button 
+                                        className="btn btn-dark"
+                                        onClick={onLogoutHandler}>
+                                            Logout
+                                        </button>
+                                    </> :
+                                    <>
+                                        <NavLink to="/login">Login
+                                        </NavLink>
+                                        <NavLink to="/register">Register
+                                        </NavLink>
+                                    </>
+
+                                }
+
                             </div>
                         </div>
                     </div>

@@ -1,12 +1,12 @@
 /* eslint-disable import/no-anonymous-default-export */
 import { initializeApp } from "firebase/app";
-import { getAnalytics } from "firebase/analytics";
-import { getFirestore } from "@firebase/firestore";
-import { getAuth } from "@firebase/auth";
+import { getFirestore } from "firebase/firestore";
+import { getAuth } from "firebase/auth";
 
 const firebaseConfig = {
   apiKey: "AIzaSyCazVu2cDKkFDTiTWru_HA5x7oO0Jycj6w",
   authDomain: "sports-fit-2b337.firebaseapp.com",
+  databaseURL: "https://sports-fit-2b337-default-rtdb.firebaseio.com",
   projectId: "sports-fit-2b337",
   storageBucket: "sports-fit-2b337.appspot.com",
   messagingSenderId: "904975218426",
@@ -15,9 +15,7 @@ const firebaseConfig = {
 };
 
 const app = initializeApp(firebaseConfig);
-const analytics = getAnalytics(app);
-
-const auth = getAuth()
+const auth = getAuth();
 const db = getFirestore();
 
-export { db }
+export { auth, db };
