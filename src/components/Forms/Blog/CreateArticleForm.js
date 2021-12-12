@@ -1,9 +1,11 @@
+import { useAuth } from '../../../hooks/useAuth';
 import { useState, useEffect } from "react";
 import { useHistory } from "react-router-dom";
 import * as blogService from '../../../services/blogService';
 import * as categoryService from '../../../services/categoryService';
 
 const CreateArticleForm = () => {
+    const currentUser = useAuth();
     const history = useHistory();
     const [categories, setCategories] = useState([]);
 
@@ -18,7 +20,13 @@ const CreateArticleForm = () => {
         let formData = new FormData(e.currentTarget);
         let { title, imageUrl, categoryId, content } = Object.fromEntries(formData);
 
-        blogService.createNewArticle(title, imageUrl, content, categoryId)
+        let author = currentUser.email;
+
+        let today = new Date();
+        let date = today.getDate() + '/' + (today.getMonth() + 1) 
+        + '/' + today.getFullYear();
+
+        blogService.createNewArticle(title, imageUrl, content, categoryId, author, date)
             .then(res => history.push(`/blog/details/${res.id}`));
     }
 

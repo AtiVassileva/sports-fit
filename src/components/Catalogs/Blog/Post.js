@@ -9,13 +9,16 @@ const Post = ({
                 <img src={article.imageUrl} alt="" />
             </div>
             <div className="bi-text">
-                <h5><Link to="/">{article.title}</Link></h5>
+                <h5>
+                    <Link to={`/blog/details/${article.id}`}>
+                        {article.title}</Link>
+                </h5>
                 <ul>
-                    <li>Author Name</li>
-                    <li>02.03.2020</li>
+                    <li>{article.author}</li>
+                    <li>{article.date}</li>
                 </ul>
                 <p>{article.content.substring(0, 200) + '... '}
-                <Link to={`/blog/details/${article.id}`}>Read more...</Link>
+                    <Link to={`/blog/details/${article.id}`}>Read more...</Link>
                 </p>
             </div>
         </div>

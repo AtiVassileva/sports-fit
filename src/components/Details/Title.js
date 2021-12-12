@@ -1,6 +1,8 @@
 const Title = ({
+    author,
     imageUrl,
-    title
+    title, 
+    date
 }) => {
     return (
         <section className="blog-details-hero set-bg"
@@ -11,9 +13,8 @@ const Title = ({
                         <div className="bh-text">
                             <h3>{title}</h3>
                             <ul>
-                                <li>by Admin</li>
-                                <li>Aug,15, 2019</li>
-                                <li>20 Comment</li>
+                                <li>Author: {author}</li>
+                                <li>{date}</li>
                             </ul>
                         </div>
                     </div>

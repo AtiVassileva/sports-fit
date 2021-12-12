@@ -1,3 +1,4 @@
+import { useAuth } from '../../hooks/useAuth';
 import { Link, useHistory } from 'react-router-dom';
 import CommentSection from "./Comments/CommentSection";
 import * as dietService from '../../services/dietService';
@@ -5,11 +6,12 @@ import * as exerciseService from '../../services/exerciseService';
 import * as blogService from '../../services/blogService';
 
 const Content = ({
+    author,
     content,
     path,
     id
 }) => {
-
+    const currentUser = useAuth();
     const history = useHistory();
 
     const pathTables = {
@@ -44,13 +46,19 @@ const Content = ({
                         <div className="blog-details-text">
                             <div className="blog-details-title">
                                 <p>{content}</p>
-                                <Link to={path + '/edit/' + id}
-                                    className="btn btn-outline-warning">Edit
-                                </Link>
-                                <button className="btn btn-outline-danger"
-                                    onClick={onDeleteHandler}>
-                                    Delete
-                                </button>
+                                {
+                                    currentUser?.email === author ?
+                                        <>
+                                            <Link to={path + '/edit/' + id}
+                                                className="btn btn-outline-warning">Edit
+                                            </Link>
+                                            <button className="btn btn-outline-danger"
+                                                onClick={onDeleteHandler}>
+                                                Delete
+                                            </button>
+                                        </>
+                                        : <></>
+                                }
                             </div>
                         </div>
                     </div>
