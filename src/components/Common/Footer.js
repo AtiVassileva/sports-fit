@@ -1,6 +1,9 @@
 import { Link } from 'react-router-dom';
+import { useAuth } from '../../hooks/useAuth';
 
 const Footer = () => {
+    const currentUser = useAuth();
+
     return (
         <footer className="footer-section">
             <div className="container">
@@ -28,12 +31,20 @@ const Footer = () => {
                         <div className="fs-widget">
                             <h4>Support</h4>
                             <ul>
-                                <li>
-                                    <Link to="/register">Register</Link>
-                                </li>
-                                <li>
-                                    <Link to="/login">Login</Link>
-                                </li>
+                                {currentUser
+                                    ?
+                                    <>
+                                        <li>
+                                            <Link to="/register">Register</Link>
+                                        </li>
+                                        <li>
+                                            <Link to="/login">Login</Link>
+                                        </li>
+                                    </>
+                                    : 
+                                    <>
+                                    </>
+                            }
                                 <li>
                                     <Link to="/about">About us</Link>
                                 </li>
