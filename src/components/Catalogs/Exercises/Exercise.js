@@ -13,6 +13,10 @@ const Exercise = ({
                     <h5>
                         <Link to={`/exercises/details/${exercise.id}`}>{exercise.name}</Link>
                     </h5>
+                    <ul>
+                        <li>{exercise.author}</li>
+                        <li>{exercise.date}</li>
+                    </ul>
                     <p>{exercise.description.substring(0, 500) + '... '}
                         <Link to={`/exercises/details/${exercise.id}`}>
                             Read more...

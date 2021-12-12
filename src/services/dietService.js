@@ -14,9 +14,9 @@ export const getAllDiets = async () => {
     return diets;
 }
 
-export const createNewDiet = async (name, imageUrl, description) => {
+export const createNewDiet = async (name, imageUrl, description, author, date) => {
     const collectionRef = collection(db, "diets");
-    let payload = { name, imageUrl, description };
+    let payload = { name, imageUrl, description, author, date };
 
     return await addDoc(collectionRef, payload);
 }
@@ -37,9 +37,12 @@ export const getLatestDiets = async () => {
 
 export const editDiet = async (id, name, imageUrl, description) => {
     const docRef = doc(db, "diets", id);
-    const payload = { name, imageUrl, description};
-    
-    setDoc(docRef, payload);
+
+    findDiet(id)
+    .then(diet => {
+        const payload = { ...diet, name, imageUrl, description};
+        setDoc(docRef, payload);
+    });
 }
 
 export const deleteDiet = async (id) => {

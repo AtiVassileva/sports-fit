@@ -10,7 +10,13 @@ const Diet = ({
                     <img src={diet.imageUrl} alt="" />
                 </div>
                 <div className="bi-text">
-                    <h5><Link to={`/details/${diet.id}`}>{diet.name}</Link></h5>
+                    <h5>
+                        <Link to={`/diets/details/${diet.id}`}>{diet.name}</Link>
+                    </h5>
+                    <ul>
+                    <li>{diet.author}</li>
+                    <li>{diet.date}</li>
+                </ul>
                     <p>{diet.description.substring(0, 500) + '... '}
                     <Link to={`/diets/details/${diet.id}`}>Read more...
                     </Link>

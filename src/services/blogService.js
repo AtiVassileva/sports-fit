@@ -34,9 +34,12 @@ export const findArticle = async (id) => {
 
 export const editArticle = async (id, title, imageUrl, content) => {
     const docRef = doc(db, "articles", id);
-    const payload = { title, imageUrl, content};
-    
-    setDoc(docRef, payload);
+
+    findArticle(id)
+    .then(article => {
+        const payload = { ...article, title, imageUrl, content};
+        setDoc(docRef, payload);
+    });
 }
 
 export const deleteArticle = async (id) => {

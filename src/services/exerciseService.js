@@ -37,10 +37,14 @@ export const getLatestExercises = async () => {
 }
 
 export const editExercise = async (id, name, imageUrl, description) => {
+
     const docRef = doc(db, "exercises", id);
-    const payload = { name, imageUrl, description};
-    
-    setDoc(docRef, payload);
+
+    findExercise(id)
+    .then(exercise => {
+        const payload = { ...exercise, name, imageUrl, description};
+        setDoc(docRef, payload);
+    });
 }
 
 export const deleteExercise = async (id) => {

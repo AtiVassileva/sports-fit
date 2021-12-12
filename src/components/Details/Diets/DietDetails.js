@@ -20,10 +20,15 @@ const DietDetails = ({
 
     return (
         <div>
-            <Title imageUrl={diet.imageUrl}
+            <Title 
+                author={diet.author}
+                imageUrl={diet.imageUrl}
                 title={diet.name}
+                date={diet.date}
             />
-            <Content content={diet.description}
+            <Content 
+            author={diet.author}
+            content={diet.description}
             path="/diets"
             id={match.params.id}
             />

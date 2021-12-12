@@ -1,8 +1,9 @@
+import {useAuth} from '../../../hooks/useAuth';
 import { useHistory } from "react-router-dom";
 import * as dietService from '../../../services/dietService';
 
 const CreateDietForm = () => {
-
+    const currentUser = useAuth();
     const history = useHistory();
 
     const submitHandler = (e) => {
@@ -11,7 +12,13 @@ const CreateDietForm = () => {
         let formData = new FormData(e.currentTarget);
         let { name, imageUrl, description } = Object.fromEntries(formData);
 
-        dietService.createNewDiet(name, imageUrl, description)
+        let author = currentUser.email;
+
+        let today = new Date();
+        let date = today.getDate() + '/' + (today.getMonth() + 1) 
+        + '/' + today.getFullYear();
+
+        dietService.createNewDiet(name, imageUrl, description, author, date)
         .then(res => history.push(`/diets/details/${res.id}`));
     }
 
