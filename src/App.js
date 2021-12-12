@@ -1,3 +1,4 @@
+import {useAuth} from './hooks/useAuth';
 import { Route, Switch } from 'react-router-dom';
 import Header from './components/Common/Header';
 import Footer from './components/Common/Footer';
@@ -5,7 +6,8 @@ import About from './components/Common/About/About';
 import Preloader from './components/Common/Preloader';
 import MenuOverlay from './components/Common/MenuOverlay';
 import MenuWrapper from './components/Common/MenuWrapper';
-import Home from './components/Home/Home';
+import HomePage from './components/Home/Home';
+import GuestHomePage from './components/Home/GuestHome';
 import Blog from './components/Catalogs/Blog/Blog';
 import CreateArticle from './components/Forms/Blog/CreateArticle'
 import Register from './components/Forms/Authentication/Register/Register';
@@ -22,6 +24,8 @@ import EditExercise from './components/Forms/Exercises/EditExercise';
 import EditArticle from './components/Forms/Blog/EditArticle';
 
 function App() {
+  const currentUser = useAuth();
+
   return (
     <div>
       <Preloader/>
@@ -29,7 +33,7 @@ function App() {
       <MenuWrapper />
       <Header />
       <Switch>
-        <Route path="/" exact component={Home} />
+        <Route path="/" exact component={currentUser ? HomePage : GuestHomePage} />
         <Route path="/about" component={About} />
         <Route path="/blog" exact component={Blog} />
         <Route path="/create-article" component={CreateArticle} />
