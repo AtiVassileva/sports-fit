@@ -1,5 +1,5 @@
 import { collection, addDoc, getDocs, doc, getDoc, setDoc, deleteDoc } from "@firebase/firestore";
-import db from '../firebase';
+import {db} from '../firebase';
 
 export const getAllDiets = async () => {
     let diets = [];
