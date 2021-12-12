@@ -7,13 +7,51 @@ const Header = () => {
     const currentUser = useAuth();
 
     const onLogoutHandler = async () => {
-        try{
+        try {
             await authService.logout();
             history.push('/');
-        } catch(error) {
+        } catch (error) {
             alert(error.message);
         }
     }
+
+    const loggedInUserNav =
+        (<ul>
+            <li>
+                <NavLink to="/diets">Diets</NavLink>
+            </li>
+            <li>
+                <NavLink to="/create-diet">New Diet</NavLink>
+            </li>
+            <li>
+                <NavLink to="/exercises">Exercises</NavLink>
+            </li>
+            <li>
+                <NavLink to="/create-exercise">New Exercise</NavLink>
+            </li>
+            <li>
+                <NavLink to="/blog">Blog</NavLink>
+            </li>
+            <li>
+                <NavLink to="/create-article">New Article</NavLink>
+            </li>
+        </ul>
+        );
+
+        const guestNav = (
+            <ul>
+            <li>
+                <NavLink to="/diets">Diets</NavLink>
+            </li>
+            <li>
+                <NavLink to="/exercises">Exercises</NavLink>
+            </li>
+            <li>
+                <NavLink to="/blog">Blog</NavLink>
+            </li>
+        </ul>
+        );
+
     return (
         <header className="header-section">
             <div className="container-fluid">
@@ -27,26 +65,11 @@ const Header = () => {
                     </div>
                     <div className="col-lg-6">
                         <nav className="nav-menu">
-                            <ul>
-                                <li>
-                                    <NavLink to="/diets">Diets</NavLink>
-                                </li>
-                                <li>
-                                    <NavLink to="/create-diet">New Diet</NavLink>
-                                </li>
-                                <li>
-                                    <NavLink to="/exercises">Exercises</NavLink>
-                                </li>
-                                <li>
-                                    <NavLink to="/create-exercise">New Exercise</NavLink>
-                                </li>
-                                <li>
-                                    <NavLink to="/blog">Blog</NavLink>
-                                </li>
-                                <li>
-                                    <NavLink to="/create-article">New Article</NavLink>
-                                </li>
-                            </ul>
+                            {currentUser
+                                ? loggedInUserNav
+                                : guestNav
+
+                            }
                         </nav>
                     </div>
                     <div className="col-lg-3">
@@ -56,10 +79,10 @@ const Header = () => {
                                     <>
                                         <NavLink to="/">Welcome, {currentUser.email}!
                                         </NavLink>
-                                        <button 
-                                        className="btn btn-default"
-                                        style={{color:"white"}}
-                                        onClick={onLogoutHandler}>
+                                        <button
+                                            className="btn btn-default"
+                                            style={{ color: "white" }}
+                                            onClick={onLogoutHandler}>
                                             Logout
                                         </button>
                                     </> :
