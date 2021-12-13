@@ -53,7 +53,7 @@
 
 ![image](https://user-images.githubusercontent.com/65487762/145883684-ef3ccca2-37e1-4178-89ed-ae449e2cf60f.png)
 
-![image](https://user-images.githubusercontent.com/65487762/145883735-782b251a-c71d-4cee-8056-36517bc4b6b1.png)
+![image](https://user-images.githubusercontent.com/65487762/145884201-945e05cc-134c-4eb3-b197-82f769992533.png)
 
 - Details pages with comment section
 
