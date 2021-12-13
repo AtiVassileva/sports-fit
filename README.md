@@ -38,5 +38,7 @@
 - CSS 3
 - FontAwesome
 
+# Screenshots
+- 
 # Credits
 - Gym Life Master template : https://themewagon.com/themes/free-bootstrap-4-html5-gym-website-template-gymlife/
