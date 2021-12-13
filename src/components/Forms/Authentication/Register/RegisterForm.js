@@ -31,6 +31,8 @@ const RegisterForm = () => {
                 <div className="row">
                     <div className="col-lg-6">
                         <div className="leave-comment">
+                        <h3 style={{ color: "white" }}> Sign up </h3>
+                        <br/>
                             <form className="form" onSubmit={onSubmitHandler}>
                                 <fieldset className="email">
                                     <input type="email"

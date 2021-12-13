@@ -1,4 +1,4 @@
-import {useHistory} from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import * as authService from '../../../../services/authService';
 
 const LoginForm = () => {
@@ -23,15 +23,17 @@ const LoginForm = () => {
                 <div className="row">
                     <div className="col-lg-6">
                         <div className="leave-comment">
+                            <h3 style={{ color: "white" }}> Sign in </h3>
+                            <br />
                             <form className="form" onSubmit={onSubmitHandler}>
                                 <fieldset className="email">
-                                    <input type="text" placeholder="Email" 
-                                    name="email"
+                                    <input type="text" placeholder="Email"
+                                        name="email"
                                     />
                                 </fieldset>
                                 <fieldset className="password">
-                                    <input type="password" placeholder="Password" 
-                                     name="password"
+                                    <input type="password" placeholder="Password"
+                                        name="password"
                                     />
                                 </fieldset>
                                 <button type="submit" className="btn">sign in</button>
