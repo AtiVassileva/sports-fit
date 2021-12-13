@@ -2141,11 +2141,18 @@ ol {
 }
 
 .blog-pagination {
-	padding-top: 10px;
+    width: 80%;
+    height: 40px;
+    list-style: none;
+    display: flex !important;
+    justify-content: start;
+    color: white;
+	padding-right: 10px;
+    
 }
 
 .blog-pagination a {
-	display: inline-block;
+	display: inline-block; 
 	font-size: 18px;
 	color: #ffffff;
 	text-transform: uppercase;
@@ -2157,7 +2164,7 @@ ol {
 	-webkit-transition: all 0.3s;
 	-o-transition: all 0.3s;
 	transition: all 0.3s;
-}
+ }
 
 .blog-pagination a:last-child {
 	margin-right: 0;
@@ -2165,6 +2172,10 @@ ol {
 
 .blog-pagination a:hover {
 	background: #555555;
+}
+
+.disabled-btn {
+	display: none;
 }
 
 /*--------------------------
