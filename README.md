@@ -39,6 +39,8 @@
 - FontAwesome
 
 # Screenshots
-- 
+ - Home Page Guest
+ ![image](https://user-images.githubusercontent.com/65487762/145883202-c8134f9a-b872-4f93-8e58-d32068e60175.png)
+
 # Credits
 - Gym Life Master template : https://themewagon.com/themes/free-bootstrap-4-html5-gym-website-template-gymlife/
