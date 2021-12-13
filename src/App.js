@@ -1,4 +1,4 @@
-import {useAuth} from './hooks/useAuth';
+import { useAuth } from './hooks/useAuth';
 import { Route, Switch } from 'react-router-dom';
 import Header from './components/Common/Header';
 import Footer from './components/Common/Footer';
@@ -22,13 +22,14 @@ import ExerciseDetails from './components/Details/Exercises/ExerciseDetails';
 import EditDiet from './components/Forms/Diets/EditDiet';
 import EditExercise from './components/Forms/Exercises/EditExercise';
 import EditArticle from './components/Forms/Blog/EditArticle';
+import { Redirect } from 'react-router-dom';
 
 function App() {
   const currentUser = useAuth();
 
   return (
     <div>
-      <Preloader/>
+      <Preloader />
       <MenuOverlay />
       <MenuWrapper />
       <Header />
@@ -36,9 +37,24 @@ function App() {
         <Route path="/" exact component={currentUser ? HomePage : GuestHomePage} />
         <Route path="/about" component={About} />
         <Route path="/blog" exact component={Blog} />
-        <Route path="/create-article" component={CreateArticle} />
-        <Route path="/create-diet" component={CreateDiet}/>
-        <Route path="/create-exercise" component={CreateExercise}/>
+        <Route exact path="/create-article">
+          {currentUser
+            ? <CreateArticle />
+            : <Redirect to="/login" />
+          }
+        </Route>
+        <Route exact path="/create-diet">
+          {currentUser
+            ? <CreateDiet />
+            : <Redirect to="/login" />
+          }
+        </Route>
+        <Route exact path="/create-exercise">
+          {currentUser
+            ? <CreateExercise />
+            : <Redirect to="/login" />
+          }
+        </Route>
         <Route path="/diets" exact component={Diets} />
         <Route path="/exercises" exact component={Exercises} />
         <Route path="/blog/details/:id" component={ArticleDetails} />
@@ -46,9 +62,9 @@ function App() {
         <Route path="/exercises/details/:id" component={ExerciseDetails} />
         <Route path="/register" component={Register} />
         <Route path="/login" component={Login} />
-        <Route path="/diets/edit/:id" component={EditDiet}/>
-        <Route path="/exercises/edit/:id" component={EditExercise}/>
-        <Route path="/blog/edit/:id" component={EditArticle}/>
+        <Route path="/diets/edit/:id" component={EditDiet} />
+        <Route path="/exercises/edit/:id" component={EditExercise} />
+        <Route path="/blog/edit/:id" component={EditArticle} />
       </Switch>
       <Footer />
     </div>
