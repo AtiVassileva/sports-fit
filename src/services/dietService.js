@@ -1,5 +1,7 @@
-import { collection, addDoc, getDocs, doc, getDoc, setDoc, deleteDoc } from "@firebase/firestore";
 import {db} from '../firebase';
+import { collection, addDoc, getDocs, doc, getDoc, setDoc, deleteDoc, arrayUnion, arrayRemove, updateDoc } from "@firebase/firestore";
+import * as idGenerator from '../utils/idGenerator';
+
 
 export const getAllDiets = async () => {
     let diets = [];
@@ -47,4 +49,33 @@ export const editDiet = async (id, name, imageUrl, description) => {
 
 export const deleteDiet = async (id) => {
     await deleteDoc(doc(db, "diets", id));
+}
+
+export const addCommentToDiet = async (dietId, author, content) => {
+    console.log('here');
+    const docRef = doc(db, "diets", dietId);
+    let id = idGenerator.generateId();
+    
+    let payload = { id, author, content };
+
+    await updateDoc(docRef, {
+        comments: arrayUnion(payload)
+    });
+}
+
+export const extractComments = async (dietId) => {
+    return findDiet(dietId)
+        .then(diet => diet.comments);
+}
+
+export const deleteComment = async(dietId, commentId) => {
+    const docRef = doc(db, "diets", dietId);
+
+    extractComments(dietId)
+    .then(comments => {
+        let comment = comments.find(c => c.id === commentId);
+        updateDoc(docRef, {
+            comments: arrayRemove(comment)
+        });
+    });
 }

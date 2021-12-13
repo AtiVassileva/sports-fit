@@ -27,7 +27,7 @@ const CommentForm = ({
         // eslint-disable-next-line default-case
         switch (table) {
             case 'diets':
-                //dietService.deleteDiet(id);
+                dietService.addCommentToDiet(id, author, content);
                 break;
             case 'exercises':
                 //exerciseService.deleteExercise(id);
@@ -35,8 +35,9 @@ const CommentForm = ({
             case 'articles':
                 blogService.addCommentToArticle(id, author, content);
                 break;
-        }
+        }  
     }
+    
     return (
         <div>
             <div className="leave-comment">

@@ -9,21 +9,22 @@ const CommentSection = ({
     path,
     id
 }) => {
-
-    const [comments, setComments] = useState([]);
-
     const pathTables = {
         '/exercises': 'exercises',
         '/diets': 'diets',
         '/blog': 'articles',
     };
 
-    useEffect(() => {
-        const table = pathTables[path];
+    const [comments, setComments] = useState([]);
 
+    useEffect(() => {
+        
+        const table = pathTables[path];
         // eslint-disable-next-line default-case
         switch (table) {
             case 'diets':
+                dietService.extractComments(id)
+                .then(comments => setComments(comments));
                 //dietService.deleteDiet(id);
                 break;
             case 'exercises':
@@ -35,15 +36,21 @@ const CommentSection = ({
                 break;
         }
     }, [id, path, pathTables]);
+
     return (
         <div>
             <div className="comment-option">
-                <h2 className="co-title" style={{ color: "white" }}>Comments</h2>
+                <h3 className="co-title" 
+                style={{ color: "white"}}>
+                    Comments ({comments.length})</h3>
                 <br />
                 {
                     comments.map(x =>
                         <Comment
-                            //key ={x.id}
+                            key={x.id}
+                            id={x.id}
+                            parentId={id}
+                            path={path}
                             author={x.author}
                             content={x.content}
                         />

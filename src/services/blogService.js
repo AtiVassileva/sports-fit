@@ -1,6 +1,7 @@
+import { db } from '../firebase';
 import { collection, doc, addDoc, getDocs, getDoc, setDoc, updateDoc, deleteDoc, arrayUnion, arrayRemove }
     from "@firebase/firestore";
-import { db } from '../firebase';
+import * as idGenerator from '../utils/idGenerator';
 
 export const getAllArticles = async () => {
 
@@ -48,14 +49,28 @@ export const deleteArticle = async (id) => {
 
 export const addCommentToArticle = async (articleId, author, content) => {
     const docRef = doc(db, "articles", articleId);
-    let payload = {author, content};
+    let id = idGenerator.generateId();
+    
+    let payload = { id, author, content };
 
     await updateDoc(docRef, {
         comments: arrayUnion(payload)
     });
 }
 
-export const extractComments = async (id) => {
-    return findArticle(id)
-    .then(article => article.comments)
+export const extractComments = async (articleId) => {
+    return findArticle(articleId)
+        .then(article => article.comments);
+}
+
+export const deleteComment = async(articleId, commentId) => {
+    const docRef = doc(db, "articles", articleId);
+
+    extractComments(articleId)
+    .then(comments => {
+        let comment = comments.find(c => c.id === commentId);
+        updateDoc(docRef, {
+            comments: arrayRemove(comment)
+        });
+    });
 }

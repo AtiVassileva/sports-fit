@@ -13,24 +13,24 @@ const DietDetails = ({
         let id = match.params.id;
 
         dietService.findDiet(id)
-        .then(diet => {
-            setDiet(diet);
-        });
+            .then(diet => {
+                setDiet(diet);
+            });
     }, [match.params.id]);
 
     return (
         <div>
-            <Title 
+            <Title
                 author={diet.author}
                 imageUrl={diet.imageUrl}
                 title={diet.name}
                 date={diet.date}
             />
-            <Content 
-            author={diet.author}
-            content={diet.description}
-            path="/diets"
-            id={match.params.id}
+            <Content
+                author={diet.author}
+                content={diet.description}
+                path="/diets"
+                id={match.params.id}
             />
         </div>
     );
