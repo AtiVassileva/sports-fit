@@ -40,7 +40,24 @@
 
 # Screenshots
  - Home Page Guest
+ 
  ![image](https://user-images.githubusercontent.com/65487762/145883202-c8134f9a-b872-4f93-8e58-d32068e60175.png)
+ 
+ - Home Page (Logged-In User)
+ 
+ ![image](https://user-images.githubusercontent.com/65487762/145883529-8b209c25-0663-4835-81a5-b918c1f7a35b.png)
+
+- Catalog Pages - Diets, Exercises, Blog
+
+![image](https://user-images.githubusercontent.com/65487762/145883639-ea244275-be6f-4281-a472-a1a83f0baee0.png)
+
+![image](https://user-images.githubusercontent.com/65487762/145883684-ef3ccca2-37e1-4178-89ed-ae449e2cf60f.png)
+
+![image](https://user-images.githubusercontent.com/65487762/145883735-782b251a-c71d-4cee-8056-36517bc4b6b1.png)
+
+- Details pages with comment section
+
+![image](https://user-images.githubusercontent.com/65487762/145883830-97b417f4-258c-4bae-a0b0-1de6f3937416.png)
 
 # Credits
 - Gym Life Master template : https://themewagon.com/themes/free-bootstrap-4-html5-gym-website-template-gymlife/
