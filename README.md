@@ -7,7 +7,7 @@
 - somemail@abv.bg password: 123456
 
 # App Description
-- Sports Fit is the perfect place for people who want to ve fit or lose some weight - here you can find everything you need to know about the healthy lifestyle, a lot of exercises and diets.🥗📲
+- Sports Fit is the perfect place for people who want to get fit or lose some weight - here you can find everything you need to know about the healthy lifestyle, a lot of exercises and diets.🥗📲
 
 - Stay tuned by reading and posting articles in our blog so you can make sure you won't miss an update and share your experience with other users.💻
 
@@ -18,11 +18,19 @@
 - 🥗 Diets - add, edit or delete your diets.
 - 🥩 Exercises - add, edit or delete your characters.
 - 📝 Blog - add, edit or delete your articles.
-- 📱 Comments - interact with yours or other users diets, exercises or articles by commenting.
+- 📱 Comments - interact with yours or other users diets, exercises or articles by commenting (also implemented delete functionality for comments).
+
+# Helpers
+- Implemented pagination in all catalog pages.✅
+- Implemented navigations in header & footer.✅
+- Implemented custom user-friendly error page with an appropriate message.✅
+- Added some motivational gym quotes.✅
 
 # Technology stack
 - React JS
 - React Router v.5
+- React Paginate
+- Firebase 🔥
 - JavaScript
 - jQuery
 - Bootstrap 4
