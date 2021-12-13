@@ -1,6 +1,6 @@
-import { collection, doc, addDoc, getDocs, getDoc, setDoc, deleteDoc } 
-from "@firebase/firestore";
-import {db} from '../firebase';
+import { collection, doc, addDoc, getDocs, getDoc, setDoc, updateDoc, deleteDoc, arrayUnion, arrayRemove }
+    from "@firebase/firestore";
+import { db } from '../firebase';
 
 export const getAllArticles = async () => {
 
@@ -28,7 +28,7 @@ export const findArticle = async (id) => {
     const docSnap = await getDoc(docRef);
 
     let article = docSnap.data();
-    
+
     return article;
 }
 
@@ -36,12 +36,26 @@ export const editArticle = async (id, title, imageUrl, content) => {
     const docRef = doc(db, "articles", id);
 
     findArticle(id)
-    .then(article => {
-        const payload = { ...article, title, imageUrl, content};
-        setDoc(docRef, payload);
-    });
+        .then(article => {
+            const payload = { ...article, title, imageUrl, content };
+            setDoc(docRef, payload);
+        });
 }
 
 export const deleteArticle = async (id) => {
     await deleteDoc(doc(db, "articles", id));
+}
+
+export const addCommentToArticle = async (articleId, author, content) => {
+    const docRef = doc(db, "articles", articleId);
+    let payload = {author, content};
+
+    await updateDoc(docRef, {
+        comments: arrayUnion(payload)
+    });
+}
+
+export const extractComments = async (id) => {
+    return findArticle(id)
+    .then(article => article.comments)
 }

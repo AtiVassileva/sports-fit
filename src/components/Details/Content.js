@@ -64,7 +64,10 @@ const Content = ({
                     </div>
                 </div>
                 <div className="row">
-                    <CommentSection />
+                    <CommentSection
+                        path={path}
+                        id={id}
+                    />
                 </div>
             </div>
         </section>
