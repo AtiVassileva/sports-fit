@@ -36,6 +36,8 @@ const CommentForm = ({
                 blogService.addCommentToArticle(id, author, content);
                 break;
         }  
+
+        e.currentTarget['content'].value = '';
     }
 
     return (

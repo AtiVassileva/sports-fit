@@ -42,7 +42,11 @@ const CommentSection = ({
             <div className="comment-option">
                 <h3 className="co-title" 
                 style={{ color: "white"}}>
-                    Comments ({comments.length})</h3>
+                    {comments.length > 0 
+                    ? `Comments (${comments.length})`
+                    : 'No comments yet.'     
+                }
+                    </h3>
                 <br />
                 {
                     comments.map(x =>

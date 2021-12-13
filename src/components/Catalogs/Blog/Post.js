@@ -17,8 +17,9 @@ const Post = ({
                     <li>{article.author}</li>
                     <li>{article.date}</li>
                 </ul>
-                <p>{article.content.substring(0, 200) + '... '}
-                    <Link to={`/blog/details/${article.id}`}>Read more...</Link>
+                <p>{article.content.substring(0, 500) + '... '}
+                    <Link to={`/blog/details/${article.id}`}>Read more...
+                    </Link>
                 </p>
             </div>
         </div>
