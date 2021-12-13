@@ -1,4 +1,4 @@
-import Pagination from "../Pagination";
+import ReactPaginate from 'react-paginate';
 import Diet from "./Diet";
 import { useState, useEffect } from "react";
 import * as dietService from "../../../services/dietService";
@@ -7,9 +7,25 @@ const Main = () => {
 
     const [diets, setDiets] = useState([]);
 
+    const [pageNumber, setPageNumber] = useState(0);
+
+    const dietsPerPage = 3;
+    const pagesVisited = pageNumber * dietsPerPage;
+
+    const displayDiets =
+        diets
+            .slice(pagesVisited, pagesVisited + dietsPerPage)
+            .map(x => <Diet key={x.id} diet={x} />);
+
+    const pageCount = Math.ceil(diets.length / dietsPerPage);
+
+    const changePage = ({ selected }) => {
+        setPageNumber(selected);
+    }
+
     useEffect(() => {
         dietService.getAllDiets()
-        .then(diets => setDiets(diets));
+            .then(diets => setDiets(diets));
     }, []);
 
     return (
@@ -24,14 +40,16 @@ const Main = () => {
                     </div>
                 </div>
                 <div className="row">
-                    {diets.map(x =>
-                        <Diet
-                            key={x.id}
-                            diet={x}
-                        />
-                    )}
+                    {displayDiets}
                 </div>
-                <Pagination appSection="diets" />
+                <ReactPaginate
+                    previousLabel={"Previous"}
+                    nextLabel={"Next"}
+                    pageCount={pageCount}
+                    onPageChange={changePage}
+                    containerClassName={"blog-pagination"}
+                    disabledClassName={"disabled-btn"}
+                />
             </div>
         </section>
     );
