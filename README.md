@@ -1,5 +1,6 @@
 # 🏓 Sports Fit 🏐
-- Single Page Application about healthy lifestyle. ⛹️‍♀️🏅 Final defense project for React.js course at @SoftUni 🎓
+- Single Page Application about healthy lifestyle. ⛹️‍♀️🏅 
+- Final defense project for React.js course at @SoftUni 🎓
 
 # Test Users
 pesho@abv.bg password: 123456
