@@ -1,5 +1,5 @@
-# 🏓 Sports Fit 🏐
-- Single Page Application about healthy lifestyle. ⛹️‍♀️🏅 
+# 🏅 Sports Fit 🏅
+- Single Page Application about healthy lifestyle. ⛹️‍♀️⚽
 - Final defense project for React.js course at @SoftUni 🎓
 
 # Test Users
