@@ -1,5 +1,6 @@
 import * as blogService from '../../../services/blogService';
 import * as dietService from '../../../services/dietService';
+import * as exerciseService from '../../../services/exerciseService';
 
 const Comment = ({
     id,
@@ -23,7 +24,7 @@ const Comment = ({
                 dietService.deleteComment(parentId, id);
                 break;
             case 'exercises':
-                //exerciseService.deleteExercise(id);
+                exerciseService.deleteComment(parentId, id);
                 break;
             case 'articles':
                 blogService.deleteComment(parentId, id);

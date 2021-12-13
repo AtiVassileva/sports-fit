@@ -52,7 +52,6 @@ export const deleteDiet = async (id) => {
 }
 
 export const addCommentToDiet = async (dietId, author, content) => {
-    console.log('here');
     const docRef = doc(db, "diets", dietId);
     let id = idGenerator.generateId();
     

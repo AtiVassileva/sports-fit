@@ -25,10 +25,10 @@ const CommentSection = ({
             case 'diets':
                 dietService.extractComments(id)
                 .then(comments => setComments(comments));
-                //dietService.deleteDiet(id);
                 break;
             case 'exercises':
-                //exerciseService.deleteExercise(id);
+                exerciseService.extractComments(id)
+                .then(comments => setComments(comments));
                 break;
             case 'articles':
                 blogService.extractComments(id)

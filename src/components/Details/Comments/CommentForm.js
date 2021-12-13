@@ -30,14 +30,14 @@ const CommentForm = ({
                 dietService.addCommentToDiet(id, author, content);
                 break;
             case 'exercises':
-                //exerciseService.deleteExercise(id);
+                exerciseService.addCommentToExercise(id, author, content);
                 break;
             case 'articles':
                 blogService.addCommentToArticle(id, author, content);
                 break;
         }  
     }
-    
+
     return (
         <div>
             <div className="leave-comment">
