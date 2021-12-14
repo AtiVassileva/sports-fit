@@ -59,5 +59,9 @@
 
 ![image](https://user-images.githubusercontent.com/65487762/145883830-97b417f4-258c-4bae-a0b0-1de6f3937416.png)
 
+- Error 404 page
+
+![image](https://user-images.githubusercontent.com/65487762/145968470-d711ee8a-0d2b-49d5-80e5-859e3cccb2fc.png)
+
 # Credits
 - Gym Life Master template : https://themewagon.com/themes/free-bootstrap-4-html5-gym-website-template-gymlife/
