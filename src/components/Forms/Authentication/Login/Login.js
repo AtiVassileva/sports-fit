@@ -1,5 +1,6 @@
 import Title from '../../Title';
 import LoginForm from './LoginForm';
+import { isGuest } from '../../../../hoc/isGuest';
 
 const Login = () => {
     return (
@@ -10,4 +11,4 @@ const Login = () => {
     );
 }
 
-export default Login;
+export default isGuest(Login);

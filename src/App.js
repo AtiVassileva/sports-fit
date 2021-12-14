@@ -38,24 +38,9 @@ function App() {
         <Route path="/" exact component={currentUser ? HomePage : GuestHomePage} />
         <Route path="/about" component={About} />
         <Route path="/blog" exact component={Blog} />
-        <Route exact path="/create-article">
-          {currentUser
-            ? <CreateArticle />
-            : <Redirect to="/login" />
-          }
-        </Route>
-        <Route exact path="/create-diet">
-          {currentUser
-            ? <CreateDiet />
-            : <Redirect to="/login" />
-          }
-        </Route>
-        <Route exact path="/create-exercise">
-          {currentUser
-            ? <CreateExercise />
-            : <Redirect to="/login" />
-          }
-        </Route>
+        <Route path="/create-article" component={CreateArticle}/>
+        <Route path="/create-diet" component={CreateDiet}/>
+        <Route path="/create-exercise" component={CreateExercise}/>
         <Route path="/diets" exact component={Diets} />
         <Route path="/exercises" exact component={Exercises} />
         <Route path="/blog/details/:id" component={ArticleDetails} />

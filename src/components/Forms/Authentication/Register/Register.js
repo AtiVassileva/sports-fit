@@ -1,5 +1,6 @@
 import Title from '../../Title';
 import RegisterForm from './RegisterForm';
+import { isGuest } from '../../../../hoc/isGuest';
 
 const Register = () => {
     return (
@@ -10,4 +11,4 @@ const Register = () => {
     );
 }
 
-export default Register;
+export default isGuest(Register);

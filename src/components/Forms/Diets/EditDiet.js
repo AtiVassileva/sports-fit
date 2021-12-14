@@ -1,5 +1,6 @@
 import Title from '../Title';
 import EditDietForm from './EditDietForm';
+import { isAuthenticated } from '../../../hoc/isAuthenticated';
 
 const EditDiet = ({
     match
@@ -12,4 +13,4 @@ const EditDiet = ({
     );
 }
 
-export default EditDiet;
+export default isAuthenticated(EditDiet);

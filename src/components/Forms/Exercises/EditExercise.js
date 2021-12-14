@@ -1,5 +1,6 @@
 import Title from '../Title';
 import EditExerciseForm from './EditExerciseForm';
+import { isAuthenticated } from '../../../hoc/isAuthenticated';
 
 const EditExercise = ({
     match
@@ -12,4 +13,4 @@ const EditExercise = ({
     );
 }
 
-export default EditExercise;
+export default isAuthenticated(EditExercise);

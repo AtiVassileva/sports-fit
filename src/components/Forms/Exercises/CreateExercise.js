@@ -1,5 +1,6 @@
 import Title from '../Title';
 import CreateExerciseForm from './CreateExerciseForm';
+import { isAuthenticated } from '../../../hoc/isAuthenticated';
 
 const CreateExercise = () => {
     return (
@@ -10,4 +11,4 @@ const CreateExercise = () => {
     );
 }
 
-export default CreateExercise;
+export default isAuthenticated(CreateExercise);

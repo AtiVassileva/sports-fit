@@ -1,5 +1,6 @@
 import Title from '../Title';
 import EditArticleForm from './EditArticleForm';
+import { isAuthenticated } from '../../../hoc/isAuthenticated';
 
 const EditArticle = ({
     match
@@ -12,4 +13,4 @@ const EditArticle = ({
     );
 }
 
-export default EditArticle;
+export default isAuthenticated(EditArticle);

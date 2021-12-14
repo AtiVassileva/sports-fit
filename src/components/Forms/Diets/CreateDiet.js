@@ -1,5 +1,6 @@
 import Title from '../Title';
 import CreateDietForm from './CreateDietForm';
+import { isAuthenticated } from '../../../hoc/isAuthenticated';
 
 const CreateDiet = () => {
     return (
@@ -10,4 +11,4 @@ const CreateDiet = () => {
     );
 }
 
-export default CreateDiet;
+export default isAuthenticated(CreateDiet);

@@ -68,7 +68,6 @@ const Header = () => {
                             {currentUser
                                 ? loggedInUserNav
                                 : guestNav
-
                             }
                         </nav>
                     </div>
