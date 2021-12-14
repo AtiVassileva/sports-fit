@@ -16,7 +16,7 @@
 # Features
 - 👤 Account - register, login, logout.
 - 🥗 Diets - add, edit or delete your diets.
-- 🥩 Exercises - add, edit or delete your characters.
+- 🥩 Exercises - add, edit or delete your exercises.
 - 📝 Blog - add, edit or delete your articles.
 - 📱 Comments - interact with yours or other users diets, exercises or articles by commenting (also implemented delete functionality for comments).
 
