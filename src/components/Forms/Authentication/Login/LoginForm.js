@@ -1,19 +1,22 @@
+import { useContext } from 'react';
 import { useHistory } from "react-router-dom";
 import * as authService from '../../../../services/authService';
+import { AuthContext } from '../../../../contexts/AuthContext';
 
 const LoginForm = () => {
     const history = useHistory();
+
+    const { saveUserData } = useContext(AuthContext);
 
     const onSubmitHandler = (e) => {
         e.preventDefault();
         let formData = new FormData(e.currentTarget);
         let { email, password } = Object.fromEntries(formData);
 
-        console.log('logged');
         authService.login(email, password)
             .then(res => {
-                console.log(res);
-                history.push('/')
+                saveUserData(email, password);
+                history.push('/');
             });
 
     }

@@ -22,6 +22,10 @@ const CreateArticleForm = () => {
 
         let author = currentUser.email;
 
+        if (title.length < 3) {
+            return;
+        }
+        
         let today = new Date();
         let date = today.getDate() + '/' + (today.getMonth() + 1) 
         + '/' + today.getFullYear();
