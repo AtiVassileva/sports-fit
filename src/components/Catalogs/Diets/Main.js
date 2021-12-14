@@ -48,7 +48,9 @@ const Main = () => {
                     pageCount={pageCount}
                     onPageChange={changePage}
                     containerClassName={"blog-pagination"}
+                    activeLinkClassName={"active-btn"}
                     disabledClassName={"disabled-btn"}
+                    renderOnZeroPageCount={null}
                 />
             </div>
         </section>

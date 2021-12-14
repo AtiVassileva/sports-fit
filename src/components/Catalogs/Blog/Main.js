@@ -37,9 +37,12 @@ const Main = () => {
                             previousLabel={"Previous"}
                             nextLabel={"Next"}
                             pageCount={pageCount}
+                            marginPagesDisplayed={"10"}
                             onPageChange={changePage}
                             containerClassName={"blog-pagination"}
+                            activeLinkClassName={"active-btn"}
                             disabledClassName={"disabled-btn"}
+                            renderOnZeroPageCount={null}
                         />
                     </div>
                 </div>
