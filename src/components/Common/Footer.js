@@ -31,7 +31,7 @@ const Footer = () => {
                         <div className="fs-widget">
                             <h4>Support</h4>
                             <ul>
-                                {currentUser
+                                {!currentUser
                                     ?
                                     <>
                                         <li>
