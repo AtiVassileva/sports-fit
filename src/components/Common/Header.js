@@ -1,14 +1,19 @@
+import { useContext } from 'react';
 import { useHistory, NavLink } from 'react-router-dom';
 import { useAuth } from '../../hooks/useAuth';
 import * as authService from '../../services/authService';
+import { AuthContext } from '../../contexts/AuthContext';
 
 const Header = () => {
     const history = useHistory();
     const currentUser = useAuth();
 
+    const { clearUserData } = useContext(AuthContext);
+
     const onLogoutHandler = async () => {
         try {
-            await authService.logout();
+            await authService.logout()
+                .then(clearUserData());
             history.push('/');
         } catch (error) {
             alert(error.message);
@@ -35,12 +40,11 @@ const Header = () => {
             <li>
                 <NavLink to="/create-article">New Article</NavLink>
             </li>
-
         </ul>
         );
 
-        const guestNav = (
-            <ul>
+    const guestNav = (
+        <ul>
             <li>
                 <NavLink to="/diets">Diets</NavLink>
             </li>
@@ -51,7 +55,7 @@ const Header = () => {
                 <NavLink to="/blog">Blog</NavLink>
             </li>
         </ul>
-        );
+    );
 
     return (
         <header className="header-section">

@@ -3,7 +3,7 @@ import { createContext, useContext, useState } from 'react';
 export const AuthContext = createContext();
 
 const initialState = {
-    email: ''
+    email: '',
 };
 
 export const AuthProvider = ({
@@ -13,18 +13,22 @@ export const AuthProvider = ({
 
     const saveUserData = (email, password) => {
         setUser({
-            email: email
+            email: email,
         });
-    }
+    };
+
+    const clearUserData = () => {
+        setUser(initialState);
+    };
 
     return (
-        <AuthContext.Provider value={{ user, saveUserData }}>
+        <AuthContext.Provider value={{ user, saveUserData, clearUserData }}>
             {children}
         </AuthContext.Provider>
     );
 }
 
-export const useAuth = () => {
+export const useUserData = () => {
     const authState = useContext(AuthContext);
     return authState;
 }

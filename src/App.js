@@ -1,5 +1,6 @@
 import { useAuth } from './hooks/useAuth';
 import { Route, Switch } from 'react-router-dom';
+import { AuthProvider } from './contexts/AuthContext';
 import Header from './components/Common/Header';
 import Footer from './components/Common/Footer';
 import About from './components/Common/About/About';
@@ -28,7 +29,8 @@ function App() {
   const currentUser = useAuth();
 
   return (
-      <div>
+    <div>
+      <AuthProvider>
         <Preloader />
         <MenuOverlay />
         <MenuWrapper />
@@ -53,7 +55,8 @@ function App() {
           <Route component={ErrorPage} />
         </Switch>
         <Footer />
-      </div>
+      </AuthProvider>
+    </div>
   );
 }
 

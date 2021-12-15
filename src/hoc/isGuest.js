@@ -1,10 +1,10 @@
-import { useAuth } from '../contexts/AuthContext';
+import { useUserData } from '../contexts/AuthContext';
 import { Redirect } from 'react-router-dom';
 
 export const isGuest = (Component) => {
     const WrapperComponent = (props) => {
-        const {user} = useAuth();
-       
+        const {user} = useUserData();
+        
         return user.email === ''
             ? <Component {...props} />
             : <Redirect to="/" />
