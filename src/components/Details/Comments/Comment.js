@@ -40,7 +40,7 @@ const Comment = ({
                     <button
                         className="btn-outline-danger"
                         onClick={onDeleteHandler}>
-                        <i class="fas fa-trash-alt"></i>
+                        <i className="fas fa-trash-alt"></i>
                     </button>
                 </h5>
 

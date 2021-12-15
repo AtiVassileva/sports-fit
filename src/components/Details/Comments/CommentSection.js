@@ -5,16 +5,17 @@ import * as dietService from '../../../services/dietService';
 import * as exerciseService from '../../../services/exerciseService';
 import * as blogService from '../../../services/blogService';
 
+const pathTables = {
+    '/exercises': 'exercises',
+    '/diets': 'diets',
+    '/blog': 'articles',
+};
+
 const CommentSection = ({
     path,
     id
 }) => {
-    const pathTables = {
-        '/exercises': 'exercises',
-        '/diets': 'diets',
-        '/blog': 'articles',
-    };
-
+    
     const [comments, setComments] = useState([]);
 
     useEffect(() => {
@@ -35,7 +36,9 @@ const CommentSection = ({
                     .then(comments => setComments(comments));
                 break;
         }
-    }, [id, path, pathTables]);
+
+        setComments([]);
+    }, [id, path]);
 
     return (
         <div>

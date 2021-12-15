@@ -16,18 +16,20 @@ const ArticleDetails = ({
             .then(article => {
                 setArticle(article);
             });
-    }, [match.params.id]);
 
+        setArticle({});
+
+    }, [match.params.id]);
 
     return (
         <div>
-            <Title 
+            <Title
                 author={article.author}
                 imageUrl={article.imageUrl}
                 title={article.title}
                 date={article.date}
             />
-            <Content 
+            <Content
                 author={article.author}
                 content={article.content}
                 path="/blog"

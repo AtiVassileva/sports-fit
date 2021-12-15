@@ -16,6 +16,8 @@ const ExerciseDetails = ({
         .then(exercise => {
             setExercise(exercise);
         });
+
+        setExercise({});
     }, [match.params.id]);
 
 

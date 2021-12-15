@@ -26,11 +26,22 @@ export const createNewArticle = async (title, imageUrl, content, categoryId, aut
 
 export const findArticle = async (id) => {
     const docRef = doc(db, "articles", id);
+
     const docSnap = await getDoc(docRef);
 
     let article = docSnap.data();
 
     return article;
+
+    // try {
+    //     const docSnap = getDoc(docRef);
+
+    //     let article = docSnap.data();
+    //     return article;
+
+    // } catch (error) {
+    //     throw new Error("Invalid article id!");
+    // }
 }
 
 export const editArticle = async (id, title, imageUrl, content) => {
@@ -50,7 +61,7 @@ export const deleteArticle = async (id) => {
 export const addCommentToArticle = async (articleId, author, content) => {
     const docRef = doc(db, "articles", articleId);
     let id = idGenerator.generateId();
-    
+
     let payload = { id, author, content };
 
     await updateDoc(docRef, {
@@ -63,14 +74,14 @@ export const extractComments = async (articleId) => {
         .then(article => article.comments);
 }
 
-export const deleteComment = async(articleId, commentId) => {
+export const deleteComment = async (articleId, commentId) => {
     const docRef = doc(db, "articles", articleId);
 
     extractComments(articleId)
-    .then(comments => {
-        let comment = comments.find(c => c.id === commentId);
-        updateDoc(docRef, {
-            comments: arrayRemove(comment)
+        .then(comments => {
+            let comment = comments.find(c => c.id === commentId);
+            updateDoc(docRef, {
+                comments: arrayRemove(comment)
+            });
         });
-    });
 }
