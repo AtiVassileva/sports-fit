@@ -1,9 +1,12 @@
-import {useAuth} from '../../../hooks/useAuth';
+import { useAuth } from '../../../hooks/useAuth';
 
 import { useState, useEffect } from "react";
-import {useHistory} from "react-router-dom";
+import { useHistory } from "react-router-dom";
+import { Alert } from 'react-bootstrap';
 
-import {getCurrentDate} from '../../../utils/dateGetter';
+import { getCurrentDate } from '../../../utils/dateGetter';
+import * as validator from '../../../utils/validator';
+
 import * as exerciseService from '../../../services/exerciseService';
 import * as categoryService from '../../../services/categoryService';
 
@@ -14,22 +17,56 @@ const CreateExerciseForm = () => {
 
     useEffect(() => {
         categoryService.getAllCategories()
-        .then(categories => setCategories(categories));
+            .then(categories => setCategories(categories));
     }, []);
 
-    const submitHandler = (e) => {
+    const [errors, setErrors] = useState({});
+
+    const onNameChangeHandler = (e) => {
+        let error = validator.validateName(e.target.value);
+
+        error !== null ?
+            setErrors(state => ({ ...state, name: error }))
+            : setErrors(state => ({ ...state, name: false }));
+    };
+
+    const onImageUrlChangeHandler = (e) => {
+        let error = validator.validateImageUrl(e.target.value);
+
+        error !== null ?
+            setErrors(state => ({ ...state, imageUrl: error }))
+            : setErrors(state => ({ ...state, imageUrl: false }));
+    };
+
+    const onDescriptionChangeHandler = (e) => {
+        let error = validator.validateDescription(e.target.value);
+
+        error !== null ?
+            setErrors(state => ({ ...state, description: error }))
+            : setErrors(state => ({ ...state, description: false }));
+    };
+
+    const onSubmitHandler = (e) => {
         e.preventDefault();
+
+        if (Object.values(errors).includes(x => x !== false)) {
+            return;
+        }
 
         let formData = new FormData(e.currentTarget);
         let { name, imageUrl, categoryId, description } = Object.fromEntries(formData);
 
+        if (!name || !imageUrl || !description) {
+            return;
+        }
+
         let author = currentUser.email;
         let date = getCurrentDate();
-        
+
         exerciseService
-        .createNewExercise(name, imageUrl, categoryId, 
-            description, author, date)
-        .then(res => history.push(`/exercises/details/${res.id}`));
+            .createNewExercise(name, imageUrl, categoryId,
+                description, author, date)
+            .then(res => history.push(`/exercises/details/${res.id}`));
     }
 
     return (
@@ -45,18 +82,32 @@ const CreateExerciseForm = () => {
                             <br />
                             <form action="/create-article"
                                 method="post"
-                                onSubmit={submitHandler}
+                                onSubmit={onSubmitHandler}
                             >
                                 <input type="text"
                                     name="name"
-                                    placeholder="Name" />
+                                    placeholder="Name"
+                                    onChange={onNameChangeHandler}
+                                />
+                                <Alert
+                                    variant="danger"
+                                    show={Boolean(errors.name)}>
+                                    {errors.name}
+                                </Alert>
                                 <input type="url"
                                     name="imageUrl"
-                                    placeholder="Image URL" />
+                                    placeholder="Image URL"
+                                    onChange={onImageUrlChangeHandler}
+                                />
+                                <Alert
+                                    variant="danger"
+                                    show={Boolean(errors.imageUrl)}>
+                                    {errors.imageUrl}
+                                </Alert>
+                                <label style={{ color: "white" }}>Choose a category: &nbsp;</label>
                                 <select className="form-select"
                                     name="categoryId"
                                     aria-label="Default select example">
-                                    <option defaultValue>Choose a category</option>
                                     {categories
                                         .map(x =>
                                             <option
@@ -70,8 +121,15 @@ const CreateExerciseForm = () => {
                                 <br />
                                 <textarea
                                     name="description"
-                                    placeholder="Description">
+                                    placeholder="Description"
+                                    onChange={onDescriptionChangeHandler}
+                                >
                                 </textarea>
+                                <Alert
+                                    variant="danger"
+                                    show={Boolean(errors.description)}>
+                                    {errors.description}
+                                </Alert>
                                 <button type="submit">Submit</button>
                             </form>
                         </div>

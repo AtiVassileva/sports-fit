@@ -44,7 +44,7 @@ const EditDietForm = ({
             : setErrors(state => ({ ...state, description: false }));
     };
 
-    const submitHandler = (e) => {
+    const onSubmitHandler = (e) => {
         e.preventDefault();
 
         if (Object.values(errors).includes(x => x !== false)) {
@@ -57,7 +57,7 @@ const EditDietForm = ({
         if (!name || !imageUrl || !description) {
             return;
         }
-        
+
         dietService.editDiet(id, name, imageUrl, description);
         history.push(`/diets/details/${id}`);
     }
@@ -72,7 +72,7 @@ const EditDietForm = ({
                                 <form 
                                 action={`/diets/edit/${id}`}
                                 method="post"
-                                    onSubmit={submitHandler}>
+                                    onSubmit={onSubmitHandler}>
                                     <input type="text"
                                         name="name"
                                         placeholder="Name"

@@ -41,7 +41,6 @@ const CreateDietForm = () => {
     const onSubmitHandler = (e) => {
         e.preventDefault();
 
-        console.log(errors);
         if (Object.values(errors).includes(x => x !== false)) {
             return;
         }
