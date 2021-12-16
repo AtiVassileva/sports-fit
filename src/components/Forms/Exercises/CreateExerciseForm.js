@@ -13,14 +13,14 @@ import * as categoryService from '../../../services/categoryService';
 const CreateExerciseForm = () => {
     const currentUser = useAuth();
     const history = useHistory();
+    
+    const [errors, setErrors] = useState({});
     const [categories, setCategories] = useState([]);
 
     useEffect(() => {
         categoryService.getAllCategories()
             .then(categories => setCategories(categories));
     }, []);
-
-    const [errors, setErrors] = useState({});
 
     const onNameChangeHandler = (e) => {
         let error = validator.validateName(e.target.value);
