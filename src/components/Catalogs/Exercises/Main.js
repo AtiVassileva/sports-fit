@@ -9,7 +9,7 @@ const Main = () => {
 
     const [pageNumber, setPageNumber] = useState(0);
 
-    const exercisesPerPage = 2;
+    const exercisesPerPage = 3;
     const pagesVisited = pageNumber * exercisesPerPage;
 
     const displayExercises =

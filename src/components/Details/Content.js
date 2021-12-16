@@ -35,17 +35,18 @@ const Content = ({
         // eslint-disable-next-line default-case
         switch (table) {
             case 'diets':
-                dietService.deleteDiet(id);
+                dietService.deleteDiet(id)
+                .then(history.push(path));
                 break;
             case 'exercises':
-                exerciseService.deleteExercise(id);
+                exerciseService.deleteExercise(id)
+                .then(history.push(path));
                 break;
             case 'articles':
-                blogService.deleteArticle(id);
+                blogService.deleteArticle(id)
+                .then(history.push(path));
                 break;
         }
-
-        history.push(path);
     }
     return (
         <>
