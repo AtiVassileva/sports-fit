@@ -1,4 +1,4 @@
-import { createContext, useContext, useState } from 'react';
+import { createContext, useState } from 'react';
 
 export const AuthContext = createContext();
 
@@ -12,12 +12,14 @@ export const AuthProvider = ({
     const [user, setUser] = useState(initialState);
 
     const saveUserData = (email, password) => {
+        localStorage.setItem('email', email);
         setUser({
             email: email,
         });
     };
 
     const clearUserData = () => {
+        localStorage.removeItem('email');
         setUser(initialState);
     };
 
@@ -26,9 +28,4 @@ export const AuthProvider = ({
             {children}
         </AuthContext.Provider>
     );
-}
-
-export const useUserData = () => {
-    const authState = useContext(AuthContext);
-    return authState;
 }

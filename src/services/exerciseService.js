@@ -1,5 +1,5 @@
 import { db } from '../firebase';
-import { collection, addDoc, getDocs, doc, getDoc, setDoc, deleteDoc, updateDoc, arrayUnion, arrayRemove }
+import { collection, addDoc, getDocs, doc, getDoc, deleteDoc, updateDoc, arrayUnion, arrayRemove }
     from "@firebase/firestore";
 import * as idGenerator from '../utils/idGenerator';
 
