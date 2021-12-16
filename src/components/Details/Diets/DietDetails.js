@@ -14,7 +14,6 @@ const DietDetails = ({
 
         dietService.findDiet(id)
             .then(diet => {
-                console.log(diet);
                 setDiet(diet);
             });
 

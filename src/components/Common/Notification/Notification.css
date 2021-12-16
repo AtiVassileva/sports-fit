@@ -1,0 +1,9 @@
+.notification {
+    position: absolute;
+    top: 100px;
+    right: 30px;
+}
+
+.text {
+    color: white;
+}

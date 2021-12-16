@@ -1,6 +1,7 @@
 import { useAuth } from './hooks/useAuth';
 import { Route, Switch } from 'react-router-dom';
 import { AuthProvider } from './contexts/AuthContext';
+import { NotificationProvider } from './contexts/NotificationContext';
 import Header from './components/Common/Header';
 import Footer from './components/Common/Footer';
 import About from './components/Common/About/About';
@@ -26,6 +27,7 @@ import EditExercise from './components/Forms/Exercises/EditExercise';
 import EditArticle from './components/Forms/Blog/EditArticle';
 import { ErrorBoundary } from 'react-error-boundary';
 import ScrollToTop from './components/Common/ScrollToTop';
+import Notification from './components/Common/Notification/Notification';
 
 function App() {
   const currentUser = useAuth();
@@ -41,31 +43,34 @@ function App() {
         onError={errorHandler}>
         <ScrollToTop>
           <AuthProvider>
-            <Preloader />
-            <MenuOverlay />
-            <MenuWrapper />
-            <Header />
-            <Switch>
-              <Route path="/" exact component={currentUser ? HomePage : GuestHomePage} />
-              <Route path="/about" component={About} />
-              <Route path="/blog" exact component={Blog} />
-              <Route path="/create-article" component={CreateArticle} />
-              <Route path="/create-diet" component={CreateDiet} />
-              <Route path="/create-exercise" component={CreateExercise} />
-              <Route path="/diets" exact component={Diets} />
-              <Route path="/exercises" exact component={Exercises} />
-              <Route path="/blog/details/:id" component={ArticleDetails} />
-              <Route path="/diets/details/:id" component={DietDetails} />
-              <Route path="/exercises/details/:id" component={ExerciseDetails} />
-              <Route path="/register" component={Register} />
-              <Route path="/login" component={Login} />
-              <Route path="/diets/edit/:id" component={EditDiet} />
-              <Route path="/exercises/edit/:id" component={EditExercise} />
-              <Route path="/blog/edit/:id" component={EditArticle} />
-              <Route path="/404" component={ErrorPage} />
-              <Route component={ErrorPage} />
-            </Switch>
-            <Footer />
+            <NotificationProvider>
+              <Preloader />
+              <MenuOverlay />
+              <MenuWrapper />
+              <Header />
+              <Notification />
+              <Switch>
+                <Route path="/" exact component={currentUser ? HomePage : GuestHomePage} />
+                <Route path="/about" component={About} />
+                <Route path="/blog" exact component={Blog} />
+                <Route path="/create-article" component={CreateArticle} />
+                <Route path="/create-diet" component={CreateDiet} />
+                <Route path="/create-exercise" component={CreateExercise} />
+                <Route path="/diets" exact component={Diets} />
+                <Route path="/exercises" exact component={Exercises} />
+                <Route path="/blog/details/:id" component={ArticleDetails} />
+                <Route path="/diets/details/:id" component={DietDetails} />
+                <Route path="/exercises/details/:id" component={ExerciseDetails} />
+                <Route path="/register" component={Register} />
+                <Route path="/login" component={Login} />
+                <Route path="/diets/edit/:id" component={EditDiet} />
+                <Route path="/exercises/edit/:id" component={EditExercise} />
+                <Route path="/blog/edit/:id" component={EditArticle} />
+                <Route path="/404" component={ErrorPage} />
+                <Route component={ErrorPage} />
+              </Switch>
+              <Footer />
+            </NotificationProvider>
           </AuthProvider>
         </ScrollToTop>
       </ErrorBoundary>
