@@ -1,7 +1,9 @@
-export const validateTitle = (title) => {
+import * as constants from './validationConstants';
 
-    if (title.length < 3 || title.length > 100) {
-        return 'Title should be between 3 and 100 characters!';
+export const validateTitle = (title) => {
+    if (title.length < constants.defaultMinLength 
+        || title.length > constants.defaultMaxLength) {
+        return constants.invalidTitleMessage;
     }
 
     return null;
@@ -11,16 +13,34 @@ export const validateImageUrl = (imageUrl) => {
     try {
         new URL(imageUrl);
     } catch (error) {
-        return 'Please enter a valid URL!';
+        return constants.invalidUrlMessage;
     }
 
     return null;
 }
 
 export const validateContent = (content) => {
+    if (content.length < constants.defaultMinLength 
+        || content.length > constants.paragraphsMaxLength) {
+        return constants.invalidContentMessage;
+    }
 
-    if (content.length < 3 || content.length > 10000) {
-        return 'Content should be between 3 and 10000 characters!';
+    return null;
+}
+
+export const validateName = (name) => {
+    if (name.length < constants.defaultMinLength 
+        || name.length > constants.defaultMinLength) {
+        return constants.invalidNameMessage;
+    }
+
+    return null;
+}
+
+export const validateDescription = (description) => {
+    if (description.length < constants.defaultMinLength 
+        || description.length > constants.paragraphsMaxLength) {
+        return constants.invalidDescriptionMessage;
     }
 
     return null;
