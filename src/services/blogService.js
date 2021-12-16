@@ -28,15 +28,8 @@ export const findArticle = async (id) => {
     const docRef = doc(db, "articles", id);
     const docSnap = await getDoc(docRef);
 
-    // let article = docSnap.data();
-
-    // return article;
-    if (docSnap.exists()) {
-        return docSnap.data();
-    } else {
-        // doc.data() will be undefined in this case
-        throw new Error('Article does not exist!');
-    }
+    let article = docSnap.data();
+    return article;
 }
 
 export const editArticle = async (id, title, imageUrl, content) => {
