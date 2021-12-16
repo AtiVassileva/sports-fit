@@ -16,6 +16,14 @@ export const validatePassword = (password) => {
     return null;
 }
 
+export const validatePasswordAndConfirmPassword = (password, confirmPassword) => {
+    if (password !== confirmPassword) {
+        return constants.notMatchingPasswordsMessage;
+    }
+
+    return null;
+}
+
 export const validateTitle = (title) => {
     if (title.length < constants.defaultMinLength 
         || title.length > constants.defaultMaxLength) {

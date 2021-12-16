@@ -7,6 +7,8 @@ export const passwordMinLength = 6;
 
 export const invalidPasswordMessage =  `Password should contain at least ${passwordMinLength} symbols!`;
 
+export const notMatchingPasswordsMessage = `Password and its confirmation do not match!`;
+
 export const validEmailRegex = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 
 export const invalidEmailMessage = 'Invalid email address!';
