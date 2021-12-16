@@ -1,5 +1,5 @@
 import { db } from '../firebase';
-import { collection, doc, addDoc, getDocs, getDoc, setDoc, updateDoc, deleteDoc, arrayUnion, arrayRemove }
+import { collection, doc, addDoc, getDocs, getDoc, updateDoc, deleteDoc, arrayUnion, arrayRemove }
     from "@firebase/firestore";
 import * as idGenerator from '../utils/idGenerator';
 
@@ -35,11 +35,11 @@ export const findArticle = async (id) => {
 export const editArticle = async (id, title, imageUrl, content) => {
     const docRef = doc(db, "articles", id);
 
-    findArticle(id)
-        .then(article => {
-            const payload = { ...article, title, imageUrl, content };
-            setDoc(docRef, payload);
-        });
+    await updateDoc(docRef, {
+        title: title,
+        imageUrl: imageUrl,
+        content: content
+    });
 }
 
 export const deleteArticle = async (id) => {

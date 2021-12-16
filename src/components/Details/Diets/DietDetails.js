@@ -12,12 +12,11 @@ const DietDetails = ({
     useEffect(() => {
         let id = match.params.id;
 
-        let diet = dietService.findDiet(id);
-        setDiet(diet);
-        // dietService.findDiet(id)
-        //     .then(diet => {
-        //         setDiet(diet);
-        //     });
+        dietService.findDiet(id)
+            .then(diet => {
+                console.log(diet);
+                setDiet(diet);
+            });
 
         setDiet({});
     }, [match.params.id]);

@@ -41,11 +41,11 @@ export const editExercise = async (id, name, imageUrl, description) => {
 
     const docRef = doc(db, "exercises", id);
 
-    findExercise(id)
-        .then(exercise => {
-            const payload = { ...exercise, name, imageUrl, description };
-            setDoc(docRef, payload);
-        });
+    await updateDoc(docRef, {
+        name: name,
+        imageUrl: imageUrl,
+        description: description
+    });
 }
 
 export const deleteExercise = async (id) => {

@@ -1,5 +1,5 @@
 import {db} from '../firebase';
-import { collection, addDoc, getDocs, doc, getDoc, setDoc, deleteDoc, arrayUnion, arrayRemove, updateDoc } from "@firebase/firestore";
+import { collection, addDoc, getDocs, doc, getDoc, deleteDoc, arrayUnion, arrayRemove, updateDoc } from "@firebase/firestore";
 import * as idGenerator from '../utils/idGenerator';
 
 
@@ -40,10 +40,10 @@ export const getLatestDiets = async () => {
 export const editDiet = async (id, name, imageUrl, description) => {
     const docRef = doc(db, "diets", id);
 
-    findDiet(id)
-    .then(diet => {
-        const payload = { ...diet, name, imageUrl, description};
-        setDoc(docRef, payload);
+    await updateDoc(docRef, {
+        name: name,
+        imageUrl: imageUrl,
+        description: description
     });
 }
 
