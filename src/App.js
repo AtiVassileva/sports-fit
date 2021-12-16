@@ -7,7 +7,7 @@ import About from './components/Common/About/About';
 import Preloader from './components/Common/Preloader';
 import MenuOverlay from './components/Common/MenuOverlay';
 import MenuWrapper from './components/Common/MenuWrapper';
-import { ErrorPage } from './components/Common/ErrorPage';
+import ErrorPage  from './components/Common/ErrorPage';
 import HomePage from './components/Home/Home';
 import GuestHomePage from './components/Home/GuestHome';
 import Blog from './components/Catalogs/Blog/Blog';
