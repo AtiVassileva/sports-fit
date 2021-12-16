@@ -2,6 +2,9 @@
 - Single Page Application about healthy lifestyle. ⛹️‍♀️⚽
 - Final defense project for React.js course at @SoftUni 🎓
 
+# Project Link
+- https://sports-fit-2b337.web.app/
+
 # Test Users
 - pesho@abv.bg password: 123456
 - somemail@abv.bg password: 123456
