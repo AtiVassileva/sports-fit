@@ -5,6 +5,8 @@ export const paragraphsMaxLength = 100000;
 
 export const passwordMinLength = 6;
 
+export const commentContentMaxLength = 3000;
+
 export const invalidPasswordMessage =  `Password should contain at least ${passwordMinLength} symbols!`;
 
 export const notMatchingPasswordsMessage = `Password and its confirmation do not match!`;
@@ -26,3 +28,6 @@ ${defaultMinLength} and ${paragraphsMaxLength} characters!`;
 
 export const invalidDescriptionMessage = `Description should be between 
 ${defaultMinLength} and ${paragraphsMaxLength} characters!`;
+
+export const invalidCommentContentMessage = `Content should be between 
+${defaultMinLength} and ${commentContentMaxLength} characters!`;

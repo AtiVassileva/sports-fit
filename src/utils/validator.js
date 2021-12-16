@@ -53,7 +53,7 @@ export const validateContent = (content) => {
 }
 
 export const validateName = (name) => {
-    if (!name || name.length < constants.defaultMinLength 
+    if (name.length < constants.defaultMinLength 
         || name.length > constants.defaultMaxLength) {
         return constants.invalidNameMessage;
     }
@@ -65,6 +65,15 @@ export const validateDescription = (description) => {
     if (description.length < constants.defaultMinLength 
         || description.length > constants.paragraphsMaxLength) {
         return constants.invalidDescriptionMessage;
+    }
+
+    return null;
+}
+
+export const validateCommentContent = (content) => {
+    if (content.length < constants.defaultMinLength 
+        || content.length > constants.commentContentMaxLength) {
+        return constants.invalidCommentContentMessage;
     }
 
     return null;
