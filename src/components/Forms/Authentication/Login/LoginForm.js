@@ -3,9 +3,12 @@ import { useHistory } from "react-router-dom";
 import { Alert } from 'react-bootstrap';
 
 import * as validator from '../../../../utils/validator';
+import { successfullyLoggedInMessage } from '../../../../utils/notificationConstants';
 
 import * as authService from '../../../../services/authService';
+
 import { AuthContext } from '../../../../contexts/AuthContext';
+import { useNotificationContext, types } from '../../../../contexts/NotificationContext';
 
 const LoginForm = () => {
     const history = useHistory();
@@ -13,6 +16,7 @@ const LoginForm = () => {
     const [errors, setErrors] = useState({});
 
     const { saveUserData } = useContext(AuthContext);
+    const { addNotification } = useNotificationContext();
 
     const onEmailChangeHandler = (e) => {
         let error = validator.validateEmail(e.target.value);
@@ -47,6 +51,7 @@ const LoginForm = () => {
         authService.login(email, password)
             .then(() => {
                 saveUserData(email, password);
+                addNotification(successfullyLoggedInMessage, types.success);
                 history.push('/');
             });
 

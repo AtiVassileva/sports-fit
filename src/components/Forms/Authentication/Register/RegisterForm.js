@@ -1,13 +1,21 @@
-import { useState } from 'react';
+import { useState, useContext } from 'react';
 import { useHistory } from "react-router-dom";
 import { Alert } from 'react-bootstrap';
 
 import * as validator from '../../../../utils/validator';
+import { successfullyRegisteredMessage } from '../../../../utils/notificationConstants';
+
 import * as authService from '../../../../services/authService';
+
+import { AuthContext } from '../../../../contexts/AuthContext';
+import { useNotificationContext, types } from '../../../../contexts/NotificationContext';
 
 const RegisterForm = () => {
     const history = useHistory();
     const [errors, setErrors] = useState({});
+
+    const { saveUserData } = useContext(AuthContext);
+    const { addNotification } = useNotificationContext();
 
     const onEmailChangeHandler = (e) => {
         let error = validator.validateEmail(e.target.value);
@@ -30,7 +38,7 @@ const RegisterForm = () => {
         let password = e.target.parentNode.parentNode['password'].value;
 
         let error = validator
-        .validatePasswordAndConfirmPassword(password, confirmPassword);
+            .validatePasswordAndConfirmPassword(password, confirmPassword);
 
         error !== null ?
             setErrors(state => ({ ...state, confirmPassword: error }))
@@ -54,7 +62,11 @@ const RegisterForm = () => {
         }
 
         authService.register(email, password)
-            .then(history.push('/login'));
+            .then(() => {
+                saveUserData(email, password);
+                addNotification(successfullyRegisteredMessage, types.success);
+                history.push('/');
+            });
 
     }
     return (

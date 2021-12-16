@@ -1,20 +1,30 @@
 import { useContext } from 'react';
 import { useHistory, NavLink } from 'react-router-dom';
+
 import { useAuth } from '../../hooks/useAuth';
+
+import { successfullyLoggedOutMessage } from '../../utils/notificationConstants';
 import * as authService from '../../services/authService';
+
 import { AuthContext } from '../../contexts/AuthContext';
+import { NotificationContext, types } from '../../contexts/NotificationContext';
 
 const Header = () => {
     const history = useHistory();
     const currentUser = useAuth();
 
     const { clearUserData } = useContext(AuthContext);
+    const { addNotification } = useContext(NotificationContext);
 
-    const onLogoutHandler = async () => {
+    const onLogoutHandler = () => {
         try {
-            await authService.logout()
-                .then(clearUserData());
-            history.push('/');
+            authService.logout()
+                .then(() => {
+                    clearUserData();
+                    addNotification(successfullyLoggedOutMessage, 
+                        types.success);
+                    history.push('/');
+                });
         } catch (error) {
             alert(error.message);
         }
