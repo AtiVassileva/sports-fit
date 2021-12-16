@@ -1,5 +1,21 @@
 import * as constants from './validationConstants';
 
+export const validateEmail = (email) => {
+    return String(email)
+    .toLowerCase()
+    .match(constants.validEmailRegex) 
+    ? null
+    : constants.invalidEmailMessage;
+}
+
+export const validatePassword = (password) => {
+    if (password.length < constants.passwordMinLength) {
+        return constants.invalidPasswordMessage;
+    }
+
+    return null;
+}
+
 export const validateTitle = (title) => {
     if (title.length < constants.defaultMinLength 
         || title.length > constants.defaultMaxLength) {

@@ -58,8 +58,8 @@ const EditDietForm = ({
             return;
         }
 
-        dietService.editDiet(id, name, imageUrl, description)
-        .then(history.push(`/diets/details/${id}`));
+        dietService.editDiet(id, name, imageUrl, description);
+        history.push(`/diets/details/${id}`);
     }
 
     return (
