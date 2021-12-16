@@ -41,13 +41,19 @@ const CreateDietForm = () => {
     const onSubmitHandler = (e) => {
         e.preventDefault();
 
-        if (Object.values(errors).includes(x => x !== false)) {
+        console.log(errors);
+        if (Object.values(errors).includes(x => x !== false)
+        || errors === {}) {
             return;
         }
 
         let formData = new FormData(e.currentTarget);
         let { name, imageUrl, description } = Object.fromEntries(formData);
 
+        if (!name || !imageUrl || !description) {
+            return;
+        }
+        
         let author = currentUser.email;
         let date = getCurrentDate();
 

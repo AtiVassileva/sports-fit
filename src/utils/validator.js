@@ -29,8 +29,8 @@ export const validateContent = (content) => {
 }
 
 export const validateName = (name) => {
-    if (name.length < constants.defaultMinLength 
-        || name.length > constants.defaultMinLength) {
+    if (!name || name.length < constants.defaultMinLength 
+        || name.length > constants.defaultMaxLength) {
         return constants.invalidNameMessage;
     }
 

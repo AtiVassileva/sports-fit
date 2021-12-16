@@ -8,7 +8,7 @@ ${defaultMinLength} and ${defaultMaxLength} characters!`;
 
 export const invalidUrlMessage = 'Please enter a valid URL!';
 
-export const invalidNameMessage = `Title should be between 
+export const invalidNameMessage = `Name should be between 
 ${defaultMinLength} and ${defaultMaxLength} characters!`;
 
 export const invalidContentMessage = `Content should be between 
