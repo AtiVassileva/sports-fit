@@ -14,7 +14,7 @@ const LoginForm = () => {
         let { email, password } = Object.fromEntries(formData);
 
         authService.login(email, password)
-            .then(res => {
+            .then(() => {
                 saveUserData(email, password);
                 history.push('/');
             });
