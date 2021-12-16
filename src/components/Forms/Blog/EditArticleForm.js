@@ -54,6 +54,10 @@ const EditArticleForm = ({
         let formData = new FormData(e.currentTarget);
         let { title, imageUrl, content } = Object.fromEntries(formData);
 
+        if (!title || !imageUrl || !content) {
+            return;
+        }
+        
         blogService.editArticle(id, title, imageUrl, content);
         history.push(`/blog/details/${id}`);
     }

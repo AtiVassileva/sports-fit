@@ -56,6 +56,10 @@ const CreateArticleForm = () => {
         let formData = new FormData(e.currentTarget);
         let { title, imageUrl, categoryId, content } = Object.fromEntries(formData);
 
+        if (!title || !imageUrl || !content) {
+            return;
+        }
+        
         let author = currentUser.email;
         let date = getCurrentDate();
 

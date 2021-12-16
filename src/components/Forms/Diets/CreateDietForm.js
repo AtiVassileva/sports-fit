@@ -42,8 +42,7 @@ const CreateDietForm = () => {
         e.preventDefault();
 
         console.log(errors);
-        if (Object.values(errors).includes(x => x !== false)
-        || errors === {}) {
+        if (Object.values(errors).includes(x => x !== false)) {
             return;
         }
 
@@ -53,7 +52,7 @@ const CreateDietForm = () => {
         if (!name || !imageUrl || !description) {
             return;
         }
-        
+
         let author = currentUser.email;
         let date = getCurrentDate();
 
