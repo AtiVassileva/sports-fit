@@ -7,7 +7,7 @@ import About from './components/Common/About/About';
 import Preloader from './components/Common/Preloader';
 import MenuOverlay from './components/Common/MenuOverlay';
 import MenuWrapper from './components/Common/MenuWrapper';
-import ErrorPage  from './components/Common/ErrorPage';
+import ErrorPage from './components/Common/ErrorPage';
 import HomePage from './components/Home/Home';
 import GuestHomePage from './components/Home/GuestHome';
 import Blog from './components/Catalogs/Blog/Blog';
@@ -25,7 +25,7 @@ import EditDiet from './components/Forms/Diets/EditDiet';
 import EditExercise from './components/Forms/Exercises/EditExercise';
 import EditArticle from './components/Forms/Blog/EditArticle';
 import { ErrorBoundary } from 'react-error-boundary';
-import  TopScroller  from './components/Common/TopScroller';
+import ScrollToTop from './components/Common/ScrollToTop';
 
 function App() {
   const currentUser = useAuth();
@@ -39,6 +39,7 @@ function App() {
       <ErrorBoundary
         FallbackComponent={ErrorPage}
         onError={errorHandler}>
+        <ScrollToTop>
           <AuthProvider>
             <Preloader />
             <MenuOverlay />
@@ -66,8 +67,8 @@ function App() {
             </Switch>
             <Footer />
           </AuthProvider>
+        </ScrollToTop>
       </ErrorBoundary>
-      <TopScroller />
     </div>
   );
 }
