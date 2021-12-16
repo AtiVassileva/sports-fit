@@ -26,22 +26,17 @@ export const createNewArticle = async (title, imageUrl, content, categoryId, aut
 
 export const findArticle = async (id) => {
     const docRef = doc(db, "articles", id);
-
     const docSnap = await getDoc(docRef);
 
-    let article = docSnap.data();
+    // let article = docSnap.data();
 
-    return article;
-
-    // try {
-    //     const docSnap = getDoc(docRef);
-
-    //     let article = docSnap.data();
-    //     return article;
-
-    // } catch (error) {
-    //     throw new Error("Invalid article id!");
-    // }
+    // return article;
+    if (docSnap.exists()) {
+        return docSnap.data();
+    } else {
+        // doc.data() will be undefined in this case
+        throw new Error('Article does not exist!');
+    }
 }
 
 export const editArticle = async (id, title, imageUrl, content) => {

@@ -1,12 +1,16 @@
 import { useAuth } from '../../../hooks/useAuth';
+
 import { useState, useEffect } from "react";
 import { useHistory } from "react-router-dom";
+
+import { getCurrentDate } from '../../../utils/dateGetter';
 import * as blogService from '../../../services/blogService';
 import * as categoryService from '../../../services/categoryService';
 
 const CreateArticleForm = () => {
     const currentUser = useAuth();
     const history = useHistory();
+
     const [categories, setCategories] = useState([]);
 
     useEffect(() => {
@@ -14,21 +18,14 @@ const CreateArticleForm = () => {
             .then(categories => setCategories(categories));
     }, []);
 
-    const submitHandler = (e) => {
+    const onSubmitHandler = (e) => {
         e.preventDefault();
 
         let formData = new FormData(e.currentTarget);
         let { title, imageUrl, categoryId, content } = Object.fromEntries(formData);
 
         let author = currentUser.email;
-
-        if (title.length < 3) {
-            return;
-        }
-        
-        let today = new Date();
-        let date = today.getDate() + '/' + (today.getMonth() + 1) 
-        + '/' + today.getFullYear();
+        let date = getCurrentDate();
 
         blogService.createNewArticle(title, imageUrl, content, categoryId, author, date)
             .then(res => history.push(`/blog/details/${res.id}`));
@@ -47,7 +44,7 @@ const CreateArticleForm = () => {
                             <br />
                             <form action="/create-article"
                                 method="post"
-                                onSubmit={submitHandler}
+                                onSubmit={onSubmitHandler}
                             >
                                 <input type="text"
                                     name="title"

@@ -1,4 +1,6 @@
 import { useState, useEffect } from 'react';
+import { useErrorHandler } from 'react-error-boundary';
+
 import * as blogService from '../../../services/blogService';
 import Content from "../Content";
 import Title from "../Title";
@@ -6,20 +8,25 @@ import Title from "../Title";
 const ArticleDetails = ({
     match
 }) => {
-
     const [article, setArticle] = useState({});
+    const handleError = useErrorHandler();
 
     useEffect(() => {
         let id = match.params.id;
 
-        blogService.findArticle(id)
-            .then(article => {
-                setArticle(article);
-            });
+        try {
+            blogService.findArticle(id)
+                .then(article => {
+                    setArticle(article);
+                });
+        } catch (error) {
+            console.log(error);
+            handleError(error);
+        }
 
         setArticle({});
 
-    }, [match.params.id]);
+    }, [handleError, match.params.id]);
 
     return (
         <div>

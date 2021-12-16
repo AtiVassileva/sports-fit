@@ -2,6 +2,8 @@ import {useAuth} from '../../../hooks/useAuth';
 
 import { useState, useEffect } from "react";
 import {useHistory} from "react-router-dom";
+
+import {getCurrentDate} from '../../../utils/dateGetter';
 import * as exerciseService from '../../../services/exerciseService';
 import * as categoryService from '../../../services/categoryService';
 
@@ -22,11 +24,8 @@ const CreateExerciseForm = () => {
         let { name, imageUrl, categoryId, description } = Object.fromEntries(formData);
 
         let author = currentUser.email;
-
-        let today = new Date();
-        let date = today.getDate() + '/' + (today.getMonth() + 1) 
-        + '/' + today.getFullYear();
-
+        let date = getCurrentDate();
+        
         exerciseService
         .createNewExercise(name, imageUrl, categoryId, 
             description, author, date)

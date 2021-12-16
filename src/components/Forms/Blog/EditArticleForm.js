@@ -1,11 +1,13 @@
 import { useState, useEffect } from "react";
 import { useHistory } from "react-router-dom";
+
 import * as blogService from '../../../services/blogService';
 
 const EditArticleForm = ({
     id,
 }) => {
     const history = useHistory();
+
     const [currentArticle, setCurrentArticle] = useState({});
 
     useEffect(() => {
@@ -15,7 +17,7 @@ const EditArticleForm = ({
             });
     }, [id]);
 
-    const submitHandler = (e) => {
+    const onSubmitHandler = (e) => {
         e.preventDefault();
 
         let formData = new FormData(e.currentTarget);
@@ -38,7 +40,7 @@ const EditArticleForm = ({
                             <br />
                             <form
                                 method="post"
-                                onSubmit={submitHandler}
+                                onSubmit={onSubmitHandler}
                             >
                                 <input type="text"
                                     name="title"
