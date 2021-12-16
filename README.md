@@ -61,7 +61,7 @@
 
 - Error 404 page
 
-![image](https://user-images.githubusercontent.com/65487762/145968470-d711ee8a-0d2b-49d5-80e5-859e3cccb2fc.png)
+![image](https://user-images.githubusercontent.com/65487762/146410807-8a9a9b44-13ee-4cef-acbc-e3dd55edaa27.png)
 
 # Credits
 - Gym Life Master template : https://themewagon.com/themes/free-bootstrap-4-html5-gym-website-template-gymlife/
