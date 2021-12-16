@@ -15,7 +15,7 @@ const CreateArticleForm = () => {
     const history = useHistory();
 
     const [categories, setCategories] = useState([]);
-    const [errors, setErrors] = useState({})
+    const [errors, setErrors] = useState({});
 
     useEffect(() => {
         categoryService.getAllCategories()
@@ -36,7 +36,7 @@ const CreateArticleForm = () => {
         error !== null ?
             setErrors(state => ({ ...state, imageUrl: error }))
             : setErrors(state => ({ ...state, imageUrl: false }));
-    }
+    };
 
     const onContentChangeHandler = (e) => {
         let error = validator.validateContent(e.target.value);
@@ -44,12 +44,12 @@ const CreateArticleForm = () => {
         error !== null ?
             setErrors(state => ({ ...state, content: error }))
             : setErrors(state => ({ ...state, content: false }));
-    }
+    };
 
     const onSubmitHandler = (e) => {
         e.preventDefault();
 
-        if (errors !== {}) {
+        if (Object.values(errors).includes(x => x !== false)) {
             return;
         }
 
