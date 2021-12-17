@@ -1,6 +1,8 @@
 import { useState, useEffect } from 'react';
+
 import CommentForm from "./CommentForm";
 import Comment from './Comment';
+
 import * as dietService from '../../../services/dietService';
 import * as exerciseService from '../../../services/exerciseService';
 import * as blogService from '../../../services/blogService';
@@ -18,10 +20,10 @@ const CommentSection = ({
         '/diets': 'diets',
         '/blog': 'articles',
     };
-
+     
+    const table = pathTables[path];
     useEffect(() => {
         
-        const table = pathTables[path];
         // eslint-disable-next-line default-case
         switch (table) {
             case 'diets':

@@ -3,7 +3,7 @@ import { useHistory } from "react-router-dom";
 import { Alert } from 'react-bootstrap';
 
 import * as validator from '../../../../utils/validator';
-import { successfullyRegisteredMessage } from '../../../../utils/notificationConstants';
+import { successfullyRegisteredMessage, invalidRegisterAttemptMessage } from '../../../../utils/notificationConstants';
 
 import * as authService from '../../../../services/authService';
 
@@ -66,7 +66,8 @@ const RegisterForm = () => {
                 saveUserData(email, password);
                 addNotification(successfullyRegisteredMessage, types.success);
                 history.push('/');
-            });
+            })
+            .catch(error => addNotification(invalidRegisterAttemptMessage));
 
     }
     return (

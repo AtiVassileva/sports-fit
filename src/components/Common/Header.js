@@ -3,7 +3,7 @@ import { useHistory, NavLink } from 'react-router-dom';
 
 import { useAuth } from '../../hooks/useAuth';
 
-import { successfullyLoggedOutMessage } from '../../utils/notificationConstants';
+import { successfullyLoggedOutMessage, invalidLogoutAttemptMessage } from '../../utils/notificationConstants';
 import * as authService from '../../services/authService';
 
 import { AuthContext } from '../../contexts/AuthContext';
@@ -17,17 +17,14 @@ const Header = () => {
     const { addNotification } = useContext(NotificationContext);
 
     const onLogoutHandler = () => {
-        try {
             authService.logout()
                 .then(() => {
                     clearUserData();
                     addNotification(successfullyLoggedOutMessage, 
                         types.success);
                     history.push('/');
-                });
-        } catch (error) {
-            alert(error.message);
-        }
+                })
+                .catch(error => addNotification(invalidLogoutAttemptMessage));
     }
 
     const loggedInUserNav =

@@ -3,7 +3,7 @@ import { useHistory } from "react-router-dom";
 import { Alert } from 'react-bootstrap';
 
 import * as validator from '../../../../utils/validator';
-import { successfullyLoggedInMessage } from '../../../../utils/notificationConstants';
+import { successfullyLoggedInMessage, invalidLoginAttemptMessage } from '../../../../utils/notificationConstants';
 
 import * as authService from '../../../../services/authService';
 
@@ -53,7 +53,8 @@ const LoginForm = () => {
                 saveUserData(email, password);
                 addNotification(successfullyLoggedInMessage, types.success);
                 history.push('/');
-            });
+            })
+            .catch(error => addNotification(invalidLoginAttemptMessage));
 
     }
     return (
