@@ -20,7 +20,10 @@ const ArticleDetails = ({
             .then(article => {
                 setArticle(article);
             })
-            .catch(error => history.push('/404'));
+            .catch(error => {
+                console.log(error);
+                history.push('/404')
+            });
 
         setArticle({});
 

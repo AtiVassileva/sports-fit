@@ -32,15 +32,15 @@ import Notification from './components/Common/Notification/Notification';
 function App() {
   const currentUser = useAuth();
 
-  const errorHandler = (error, errorInfo) => {
-    console.log("Logging", error, errorInfo);
-  }
+  // const errorHandler = (error, errorInfo) => {
+  //   console.log("Logging", error, errorInfo);
+  // }
 
   return (
     <div>
-      <ErrorBoundary
+      {/* <ErrorBoundary
         FallbackComponent={ErrorPage}
-        onError={errorHandler}>
+        onError={errorHandler}> */}
         <ScrollToTop>
           <AuthProvider>
             <NotificationProvider>
@@ -73,7 +73,7 @@ function App() {
             </NotificationProvider>
           </AuthProvider>
         </ScrollToTop>
-      </ErrorBoundary>
+      {/* </ErrorBoundary> */}
     </div>
   );
 }

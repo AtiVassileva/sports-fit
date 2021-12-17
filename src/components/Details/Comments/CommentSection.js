@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { useAuth } from '../../../hooks/useAuth';
 
 import CommentForm from "./CommentForm";
 import Comment from './Comment';
@@ -12,7 +13,7 @@ const CommentSection = ({
     path,
     id
 }) => {
-
+    const currentUser = useAuth();
     const [comments, setComments] = useState([]);
 
     const pathTables = {
@@ -66,10 +67,13 @@ const CommentSection = ({
                     )
                 }
             </div>
-            <CommentForm
-                path={path}
-                id={id}
-            />
+            {currentUser ?
+                <CommentForm
+                    path={path}
+                    id={id}
+                />
+                : <></>
+            }
         </div>
     );
 }

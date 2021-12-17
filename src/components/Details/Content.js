@@ -51,19 +51,19 @@ const Content = ({
                 break;
             case 'exercises':
                 exerciseService.deleteExercise(id)
-                .then(res => {
-                    addNotification(deletedExerciseMessage, types.primary);
-                    history.push(path);
-                })
-                .catch(error => addNotification(invalidRequestMessage));
+                    .then(res => {
+                        addNotification(deletedExerciseMessage, types.primary);
+                        history.push(path);
+                    })
+                    .catch(error => addNotification(invalidRequestMessage));
                 break;
             case 'articles':
                 blogService.deleteArticle(id)
-                .then(res => {
-                    history.push(path);
-                    addNotification(deletedArticleMessage, types.primary);     
-                })
-                .catch(error => addNotification(invalidRequestMessage));
+                    .then(res => {
+                        history.push(path);
+                        addNotification(deletedArticleMessage, types.primary);
+                    })
+                    .catch(error => addNotification(invalidRequestMessage));
                 break;
         }
     }
