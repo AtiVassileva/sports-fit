@@ -2,6 +2,10 @@ import { useState, useEffect } from 'react';
 import { Alert } from 'react-bootstrap';
 import { useHistory } from "react-router-dom";
 
+import { useNotificationContext, types } from '../../../contexts/NotificationContext';
+
+import { successfullyEditedDietMessage, invalidRequestMessage } from '../../../utils/notificationConstants';
+
 import * as validator from '../../../utils/validator';
 import * as dietService from '../../../services/dietService';
 
@@ -9,6 +13,8 @@ const EditDietForm = ({
     id
 }) => {
     const history = useHistory();
+
+    const { addNotification } = useNotificationContext();
 
     const [currentDiet, setCurrentDiet] = useState({});
     const [errors, setErrors] = useState({});
@@ -58,8 +64,12 @@ const EditDietForm = ({
             return;
         }
 
-        dietService.editDiet(id, name, imageUrl, description);
-        history.push(`/diets/details/${id}`);
+        dietService.editDiet(id, name, imageUrl, description)
+        .then(res => {
+            addNotification(successfullyEditedDietMessage, types.success);
+            history.push(`/diets/details/${id}`);
+        })
+        .catch(error => addNotification(invalidRequestMessage));
     }
 
     return (

@@ -3,14 +3,19 @@ import { useHistory } from "react-router-dom";
 import { Alert } from 'react-bootstrap';
 
 import { useAuth } from '../../../hooks/useAuth';
+import { useNotificationContext, types } from '../../../contexts/NotificationContext';
 
 import * as validator from '../../../utils/validator';
-import * as dietService from '../../../services/dietService';
 import { getCurrentDate } from '../../../utils/dateGetter';
+import { successfullyAddedDietMessage, invalidRequestMessage } from '../../../utils/notificationConstants';
+
+import * as dietService from '../../../services/dietService';
 
 const CreateDietForm = () => {
     const currentUser = useAuth();
     const history = useHistory();
+
+    const { addNotification } = useNotificationContext();
 
     const [errors, setErrors] = useState({});
 
@@ -56,7 +61,11 @@ const CreateDietForm = () => {
         let date = getCurrentDate();
 
         dietService.createNewDiet(name, imageUrl, description, author, date)
-            .then(res => history.push(`/diets/details/${res.id}`));
+            .then(res => {
+                addNotification(successfullyAddedDietMessage, types.success);
+                history.push(`/diets/details/${res.id}`);
+            })
+            .catch(error => addNotification(invalidRequestMessage));
     }
 
     return (
@@ -75,20 +84,20 @@ const CreateDietForm = () => {
                                     onSubmit={onSubmitHandler}>
                                     <input type="text"
                                         name="name"
-                                        placeholder="Name" 
+                                        placeholder="Name"
                                         onChange={onNameChangeHandler}
-                                        />
-                                    <Alert 
+                                    />
+                                    <Alert
                                         variant="danger"
                                         show={Boolean(errors.name)}>
                                         {errors.name}
                                     </Alert>
                                     <input type="url"
                                         name="imageUrl"
-                                        placeholder="Image URL" 
+                                        placeholder="Image URL"
                                         onChange={onImageUrlChangeHandler}
-                                        />
-                                        <Alert 
+                                    />
+                                    <Alert
                                         variant="danger"
                                         show={Boolean(errors.imageUrl)}>
                                         {errors.imageUrl}
@@ -97,9 +106,9 @@ const CreateDietForm = () => {
                                         name="description"
                                         placeholder="Description"
                                         onChange={onDescriptionChangeHandler}
-                                        >
+                                    >
                                     </textarea>
-                                    <Alert 
+                                    <Alert
                                         variant="danger"
                                         show={Boolean(errors.description)}>
                                         {errors.description}

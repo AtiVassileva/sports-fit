@@ -16,6 +16,10 @@ export const successfullyAddedArticleMessage = 'Article added successfully. Chec
 
 export const successfullyEditedArticleMessage = 'Article edited successfully. Check details page for full information.';
 
+export const successfullyAddedDietMessage = 'Diet added successfully. Check details page for full information.';
+
+export const successfullyEditedDietMessage = 'Diet edited successfully. Check details page for full information.';
+
 export const deletedArticleMessage = 'Article deleted successfully!';
 
 export const deletedDietMessage = 'Diet deleted successfully!';
