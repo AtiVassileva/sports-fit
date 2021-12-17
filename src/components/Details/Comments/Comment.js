@@ -10,6 +10,8 @@ const Comment = ({
     content
 }) => {
 
+    const currentUser = localStorage.getItem('email');
+
     const pathTables = {
         '/exercises': 'exercises',
         '/diets': 'diets',
@@ -37,11 +39,14 @@ const Comment = ({
             <div className="co-pic">
                 <h5 style={{ color: "#F36100" }}>
                     {author} &nbsp;
-                    <button
-                        className="btn-outline-danger"
-                        onClick={onDeleteHandler}>
-                        <i className="fas fa-trash-alt"></i>
-                    </button>
+                    {currentUser === author ?
+                        <button
+                            className="btn-outline-danger"
+                            onClick={onDeleteHandler}>
+                            <i className="fas fa-trash-alt"></i>
+                        </button>
+                        : <></>
+                    }
                 </h5>
 
             </div>
