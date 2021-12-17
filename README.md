@@ -66,5 +66,13 @@
 
 ![image](https://user-images.githubusercontent.com/65487762/146410807-8a9a9b44-13ee-4cef-acbc-e3dd55edaa27.png)
 
+- Notifications
+
+![image](https://user-images.githubusercontent.com/65487762/146540854-b4307f72-5fe0-4c1a-8154-70ecac8fc36c.png)
+
+![image](https://user-images.githubusercontent.com/65487762/146540607-6340f171-b542-4815-b864-2a8e6bf0877f.png)
+
+![image](https://user-images.githubusercontent.com/65487762/146541019-3480b65a-cc17-4953-b0cb-8ed4bca22152.png)
+
 # Credits
 - Gym Life Master template : https://themewagon.com/themes/free-bootstrap-4-html5-gym-website-template-gymlife/
