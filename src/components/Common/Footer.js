@@ -41,10 +41,14 @@ const Footer = () => {
                                             <Link to="/login">Login</Link>
                                         </li>
                                     </>
-                                    : 
+                                    :
                                     <>
                                     </>
-                            }
+                                }
+                                <li>
+                                    <Link to="/diets/details/xILvLhYu1xZguW3Bn4wNx">Invalid
+                                    </Link>
+                                </li>
                                 <li>
                                     <Link to="/about">About us</Link>
                                 </li>

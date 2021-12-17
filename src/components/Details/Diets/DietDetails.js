@@ -1,24 +1,37 @@
 import { useState, useEffect } from 'react';
+import {useHistory} from "react-router-dom";
+
 import * as dietService from '../../../services/dietService';
+
+import ErrorPage from '../../Common/ErrorPage';
 import Content from "../Content";
 import Title from "../Title";
 
 const DietDetails = ({
     match
 }) => {
+    const history = useHistory();
 
     const [diet, setDiet] = useState({});
+    const [error, setError] = useState(false);
 
     useEffect(() => {
         let id = match.params.id;
 
         dietService.findDiet(id)
             .then(diet => {
-                setDiet(diet);
-            });
+                diet === undefined
+                    ? setError(true)
+                    : setDiet(diet);
+            })
+            .catch(error => history.push('/404'));
 
         setDiet({});
-    }, [match.params.id]);
+    }, [history, match.params.id]);
+
+    if (error) {
+        return <ErrorPage />;
+    }
 
     return (
         <div>

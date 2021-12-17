@@ -7,8 +7,6 @@ import * as validator from '../../../utils/validator';
 import * as dietService from '../../../services/dietService';
 import * as exerciseService from '../../../services/exerciseService';
 import * as blogService from '../../../services/blogService';
-
-import { isAuthenticated } from '../../../hoc/isAuthenticated';
  
 const CommentForm = ({
     path,

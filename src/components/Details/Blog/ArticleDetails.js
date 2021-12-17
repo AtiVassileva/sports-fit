@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
 
 import * as blogService from '../../../services/blogService';
+import ErrorPage from '../../Common/ErrorPage';
 
 import Content from "../Content";
 import Title from "../Title";
@@ -11,23 +12,29 @@ const ArticleDetails = ({
     match
 }) => {
     const history = useHistory();
+
     const [article, setArticle] = useState({});
+
+    const [error, setError] = useState(false);
 
     useEffect(() => {
         let id = match.params.id;
 
         blogService.findArticle(id)
             .then(article => {
-                setArticle(article);
+                article === undefined 
+                ? setError(true)
+                :setArticle(article);
             })
-            .catch(error => {
-                console.log(error);
-                history.push('/404')
-            });
+            .catch(error => history.push('/404'));
 
         setArticle({});
 
     }, [history, match.params.id]);
+
+    if (error) {
+        return <ErrorPage/>;
+    }
 
     return (
         <div>
