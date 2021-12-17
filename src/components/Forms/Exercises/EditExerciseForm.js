@@ -65,10 +65,17 @@ const EditExerciseForm = ({
             return;
         }
 
+        // // dietService.editDiet(id, name, imageUrl, description)
+        // // .then(res => {
+        // //     addNotification(successfullyEditedDietMessage, types.success);
+        // //     history.push(`/diets/details/${id}`);
+        // // })
+        // .catch(error => addNotification(invalidRequestMessage));
+
         exerciseService.editExercise(id, name, imageUrl, description)
         .then(res => {
             addNotification(successfullyEditedExerciseMessage, types.success);
-            history.push(`/exercises/details/${res.id}`);
+            history.push(`/exercises/details/${id}`);
         })
         .catch(error => addNotification(invalidRequestMessage));
     }
