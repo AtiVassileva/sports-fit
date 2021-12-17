@@ -64,14 +64,7 @@ const EditExerciseForm = ({
         if (!name || !imageUrl || !description) {
             return;
         }
-
-        // // dietService.editDiet(id, name, imageUrl, description)
-        // // .then(res => {
-        // //     addNotification(successfullyEditedDietMessage, types.success);
-        // //     history.push(`/diets/details/${id}`);
-        // // })
-        // .catch(error => addNotification(invalidRequestMessage));
-
+        
         exerciseService.editExercise(id, name, imageUrl, description)
         .then(res => {
             addNotification(successfullyEditedExerciseMessage, types.success);
