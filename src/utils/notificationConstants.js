@@ -20,6 +20,10 @@ export const successfullyAddedDietMessage = 'Diet added successfully. Check deta
 
 export const successfullyEditedDietMessage = 'Diet edited successfully. Check details page for full information.';
 
+export const successfullyAddedExerciseMessage = 'Exercise added successfully. Check details page for full information.';
+
+export const successfullyEditedExerciseMessage = 'Exercise edited successfully. Check details page for full information.';
+
 export const deletedArticleMessage = 'Article deleted successfully!';
 
 export const deletedDietMessage = 'Diet deleted successfully!';

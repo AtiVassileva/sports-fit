@@ -2,13 +2,20 @@ import { useState, useEffect } from "react";
 import { useHistory } from "react-router-dom";
 import { Alert } from 'react-bootstrap';
 
+import { successfullyEditedExerciseMessage, invalidRequestMessage } 
+from '../../../utils/notificationConstants';
 import * as validator from '../../../utils/validator';
+
+import { useNotificationContext, types } from '../../../contexts/NotificationContext';
+
 import * as exerciseService from '../../../services/exerciseService';
 
 const EditExerciseForm = ({
     id
 }) => {
     const history = useHistory();
+
+    const { addNotification } = useNotificationContext();
 
     const [errors, setErrors] = useState({});
     const [currentExercise, setCurrentExercise] = useState({});
@@ -58,8 +65,12 @@ const EditExerciseForm = ({
             return;
         }
 
-        exerciseService.editExercise(id, name, imageUrl, description);
-        history.push(`/exercises/details/${id}`);
+        exerciseService.editExercise(id, name, imageUrl, description)
+        .then(res => {
+            addNotification(successfullyEditedExerciseMessage, types.success);
+            history.push(`/exercises/details/${res.id}`);
+        })
+        .catch(error => addNotification(invalidRequestMessage));
     }
 
     return (

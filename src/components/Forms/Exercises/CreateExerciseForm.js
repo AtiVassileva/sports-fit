@@ -6,6 +6,10 @@ import { Alert } from 'react-bootstrap';
 
 import { getCurrentDate } from '../../../utils/dateGetter';
 import * as validator from '../../../utils/validator';
+import { successfullyAddedExerciseMessage, invalidRequestMessage } 
+from '../../../utils/notificationConstants';
+
+import { useNotificationContext, types } from '../../../contexts/NotificationContext';
 
 import * as exerciseService from '../../../services/exerciseService';
 import * as categoryService from '../../../services/categoryService';
@@ -13,7 +17,9 @@ import * as categoryService from '../../../services/categoryService';
 const CreateExerciseForm = () => {
     const currentUser = useAuth();
     const history = useHistory();
-    
+
+    const { addNotification } = useNotificationContext();
+
     const [errors, setErrors] = useState({});
     const [categories, setCategories] = useState([]);
 
@@ -66,7 +72,11 @@ const CreateExerciseForm = () => {
         exerciseService
             .createNewExercise(name, imageUrl, categoryId,
                 description, author, date)
-            .then(res => history.push(`/exercises/details/${res.id}`));
+            .then(res => {
+                addNotification(successfullyAddedExerciseMessage, types.success);
+                history.push(`/exercises/details/${res.id}`);
+            })
+            .catch(error => addNotification(invalidRequestMessage));
     }
 
     return (
