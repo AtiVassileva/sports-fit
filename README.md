@@ -26,6 +26,7 @@
 # Helpers
 - Implemented pagination in all catalog pages.✅
 - Implemented navigations in header & footer.✅
+- Implemented user-friendly notifications ✅
 - Implemented custom user-friendly error page with an appropriate message.✅
 - Added some motivational gym quotes.✅
 
