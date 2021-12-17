@@ -58,8 +58,11 @@ export const addCommentToArticle = async (articleId, author, content) => {
 }
 
 export const extractComments = async (articleId) => {
-    return findArticle(articleId)
-        .then(article => article.comments);
+    const docRef = doc(db, "articles", articleId);
+    const docSnap = await getDoc(docRef);
+
+    let article = docSnap.data();
+    return article !== undefined ? article.comments : [];
 }
 
 export const deleteComment = async (articleId, commentId) => {

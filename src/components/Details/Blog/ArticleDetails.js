@@ -1,12 +1,16 @@
 import { useState, useEffect } from 'react';
+import { useHistory } from 'react-router-dom';
+
 import * as blogService from '../../../services/blogService';
 
 import Content from "../Content";
 import Title from "../Title";
 
+
 const ArticleDetails = ({
     match
 }) => {
+    const history = useHistory();
     const [article, setArticle] = useState({});
 
     useEffect(() => {
@@ -15,11 +19,12 @@ const ArticleDetails = ({
         blogService.findArticle(id)
             .then(article => {
                 setArticle(article);
-            });
-        
+            })
+            .catch(error => history.push('/404'));
+
         setArticle({});
 
-    }, [match.params.id]);
+    }, [history, match.params.id]);
 
     return (
         <div>

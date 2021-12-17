@@ -2,6 +2,10 @@ import { useState, useEffect } from "react";
 import { useHistory } from "react-router-dom";
 import { Alert } from 'react-bootstrap';
 
+import { successfullyEditedArticleMessage, invalidRequestMessage } from '../../../utils/notificationConstants';
+
+import { useNotificationContext, types } from '../../../contexts/NotificationContext';
+
 import * as validator from '../../../utils/validator';
 import * as blogService from '../../../services/blogService';
 
@@ -9,6 +13,7 @@ const EditArticleForm = ({
     id,
 }) => {
     const history = useHistory();
+    const { addNotification } = useNotificationContext();
 
     const [currentArticle, setCurrentArticle] = useState({});
     const [errors, setErrors] = useState({});
@@ -57,65 +62,69 @@ const EditArticleForm = ({
         if (!title || !imageUrl || !content) {
             return;
         }
-        
-        blogService.editArticle(id, title, imageUrl, content);
-        history.push(`/blog/details/${id}`);
+
+        blogService.editArticle(id, title, imageUrl, content)
+            .then(res => {
+                addNotification(successfullyEditedArticleMessage, types.success);
+                history.push(`/blog/details/${id}`);
+            })
+            .catch(error => addNotification(invalidRequestMessage));
     }
 
-    return (
-        <section className="contact-section spad">
-            <div className="container">
-                <div className="row">
-                    <div className="col-lg-6">
-                        <div className="leave-comment">
-                            <h3
-                                style={{ color: "white" }}>
-                                Edit article
-                            </h3>
-                            <br />
-                            <form
-                                method="post"
-                                onSubmit={onSubmitHandler}
+return (
+    <section className="contact-section spad">
+        <div className="container">
+            <div className="row">
+                <div className="col-lg-6">
+                    <div className="leave-comment">
+                        <h3
+                            style={{ color: "white" }}>
+                            Edit article
+                        </h3>
+                        <br />
+                        <form
+                            method="post"
+                            onSubmit={onSubmitHandler}
+                        >
+                            <input type="text"
+                                name="title"
+                                placeholder="Title"
+                                defaultValue={currentArticle.title}
+                                onChange={onTitleChangeHandler}
+                            />
+                            <Alert variant="danger"
+                                show={Boolean(errors.title)}>
+                                {errors.title}
+                            </Alert>
+                            <input type="url"
+                                name="imageUrl"
+                                placeholder="Image URL"
+                                defaultValue={currentArticle.imageUrl}
+                                onChange={onImageUrlChangeHandler}
+                            />
+                            <Alert variant="danger"
+                                show={Boolean(errors.imageUrl)}>
+                                {errors.imageUrl}
+                            </Alert>
+                            <textarea
+                                name="content"
+                                placeholder="Content"
+                                defaultValue={currentArticle.content}
+                                onChange={onContentChangeHandler}
                             >
-                                <input type="text"
-                                    name="title"
-                                    placeholder="Title"
-                                    defaultValue={currentArticle.title}
-                                    onChange={onTitleChangeHandler}
-                                />
-                                <Alert variant="danger"
-                                    show={Boolean(errors.title)}>
-                                    {errors.title}
-                                </Alert>
-                                <input type="url"
-                                    name="imageUrl"
-                                    placeholder="Image URL"
-                                    defaultValue={currentArticle.imageUrl}
-                                    onChange={onImageUrlChangeHandler}
-                                />
-                                <Alert variant="danger"
-                                    show={Boolean(errors.imageUrl)}>
-                                    {errors.imageUrl}
-                                </Alert>
-                                <textarea
-                                    name="content"
-                                    placeholder="Content"
-                                    defaultValue={currentArticle.content}
-                                    onChange={onContentChangeHandler}
-                                >
-                                </textarea>
-                                <Alert variant="danger"
-                                    show={Boolean(errors.content)}>
-                                    {errors.content}
-                                </Alert>
-                                <button type="submit">Submit</button>
-                            </form>
-                        </div>
+                            </textarea>
+                            <Alert variant="danger"
+                                show={Boolean(errors.content)}>
+                                {errors.content}
+                            </Alert>
+                            <button type="submit">Submit</button>
+                        </form>
                     </div>
                 </div>
             </div>
-        </section>
-    );
+        </div>
+    </section>
+);
 }
 
 export default EditArticleForm;

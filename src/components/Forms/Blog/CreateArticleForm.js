@@ -6,6 +6,9 @@ import { Alert } from 'react-bootstrap';
 
 import { getCurrentDate } from '../../../utils/dateGetter';
 import * as validator from '../../../utils/validator';
+import { successfullyAddedArticleMessage, invalidRequestMessage } from '../../../utils/notificationConstants';
+
+import { useNotificationContext, types } from '../../../contexts/NotificationContext';
 
 import * as blogService from '../../../services/blogService';
 import * as categoryService from '../../../services/categoryService';
@@ -13,6 +16,8 @@ import * as categoryService from '../../../services/categoryService';
 const CreateArticleForm = () => {
     const currentUser = useAuth();
     const history = useHistory();
+
+    const { addNotification } = useNotificationContext();
 
     const [categories, setCategories] = useState([]);
     const [errors, setErrors] = useState({});
@@ -63,8 +68,14 @@ const CreateArticleForm = () => {
         let author = currentUser.email;
         let date = getCurrentDate();
 
-        blogService.createNewArticle(title, imageUrl, content, categoryId, author, date)
-            .then(res => history.push(`/blog/details/${res.id}`));
+        blogService
+        .createNewArticle(title, imageUrl, content, 
+            categoryId, author, date)
+            .then(res => {
+                addNotification(successfullyAddedArticleMessage, types.success);
+                history.push(`/blog/details/${res.id}`);
+            })
+            .catch(error => addNotification(invalidRequestMessage));
     }
 
     return (

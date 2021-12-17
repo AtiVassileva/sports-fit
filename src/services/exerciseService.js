@@ -64,8 +64,11 @@ export const addCommentToExercise = async (exerciseId, author, content) => {
 }
 
 export const extractComments = async (exerciseId) => {
-    return findExercise(exerciseId)
-        .then(exercise => exercise.comments);
+    const docRef = doc(db, "exercises", exerciseId);
+    const docSnap = await getDoc(docRef);
+
+    let exercise = docSnap.data();
+    return exercise !== undefined ? exercise.comments : [];
 }
 
 export const deleteComment = async (exerciseId, commentId) => {

@@ -63,8 +63,11 @@ export const addCommentToDiet = async (dietId, author, content) => {
 }
 
 export const extractComments = async (dietId) => {
-    return findDiet(dietId)
-        .then(diet => diet.comments);
+    const docRef = doc(db, "diets", dietId);
+    const docSnap = await getDoc(docRef);
+
+    let diet = docSnap.data();
+    return diet !== undefined ? diet.comments : [];
 }
 
 export const deleteComment = async(dietId, commentId) => {

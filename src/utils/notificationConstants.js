@@ -1,3 +1,5 @@
+export const invalidRequestMessage = 'An error occured while processing your request. Please try again later.';
+
 export const successfullyLoggedInMessage = 'Successfully logged in!';
 
 export const invalidLoginAttemptMessage = 'Invalid login attempt! Either the provided email and password do not match or user does not exist!';
@@ -9,3 +11,13 @@ export const invalidRegisterAttemptMessage = 'Invalid register attempt! Either a
 export const successfullyLoggedOutMessage = 'Successfully logged out!';
 
 export const invalidLogoutAttemptMessage = 'Invalid logout attempt! Please try again!';
+
+export const successfullyAddedArticleMessage = 'Article added successfully. Check details page for full information.';
+
+export const successfullyEditedArticleMessage = 'Article edited successfully. Check details page for full information.';
+
+export const deletedArticleMessage = 'Article deleted successfully!';
+
+export const deletedDietMessage = 'Diet deleted successfully!';
+
+export const deletedExerciseMessage = 'Exercise deleted successfully!';

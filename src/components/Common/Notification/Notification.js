@@ -3,7 +3,7 @@ import { useNotificationContext } from '../../../contexts/NotificationContext';
 import './Notification.css';
 
 const Notification = () => {
-    const { notification, hideNotification } = useNotificationContext();
+    const { notification } = useNotificationContext();
 
     if (!notification.show) {
         return null;
